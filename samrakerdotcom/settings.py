@@ -151,16 +151,7 @@ INSTALLED_APPS = (
     'django.contrib.messages', 'django.contrib.staticfiles', # Uncomment the next line to enable the admin:
     'django.contrib.admin', # Uncomment the next line to enable admin documentation:
     'django.contrib.admindocs', 'samrakerdotcom', 'django.contrib.flatpages', 'django.contrib.humanize',
-    'django.contrib.syndication', 'hash_to_hash', 'storages', 'bootstrap3',
-    #'zinnia_bootstrap',
-    #'zinnia',
-)
-# if VERSION == 'production':
-#     INSTALLED_APPS += (
-#     'tagging',
-#     'mptt',
-#     'zinnia',
-#     )
+    'django.contrib.syndication', 'storages', 'bootstrap3')
 
 #DISQUS_USER_API_KEY = secret.DISQUS_USER_API_KEY
 #DISQUS_FORUM_SHORTNAME = 'samrakerdotcom'
