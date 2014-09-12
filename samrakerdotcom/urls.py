@@ -13,7 +13,7 @@ urlpatterns = patterns('',
     url(r'^$', main),
     url(r'^load_cv/$', load_cv),
     url(r'^load_etc/$', load_etc),
-    url(r'^load_vst/$', load_vst)
+    url(r'^load_vst/$', load_vst),
     url(r'^cv/$', main),
     url(r'^about/$', main),
     url(r'^etc/$', main),
