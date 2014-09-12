@@ -1,7 +1,0 @@
-<div class="container visible-phone">
-    {% include 'player-table.html' with d=user_dict key=True %}
-    {% include 'player-table.html' with d=free_dict %}
-    {% for d in other_dicts %}
-    {% include 'player-table.html' with d=d %}
-    {% endfor %}
-</div>
