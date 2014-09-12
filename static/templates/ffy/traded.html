@@ -1,0 +1,15 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} Success! {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span6 offset3">
+            <p class="text-success lead text-center">You have proposed a trade to {{ other }}:</p>
+            <p class="text-center">{{ fy1 }} for {{ fy2 }}</p>
+            <a href="http://www.samraker.com/ffy/manage/" class="btn btn-primary">Go Back</a>
+        </div>
+    </div>
+</div>
+{% endblock %}

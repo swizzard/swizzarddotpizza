@@ -1,0 +1,33 @@
+{% load bootstrap_toolkit %}
+<div class="container-fluid hidden-phone">
+    <div class="row-fluid">
+        <div class="span4">
+            {% include "player-table.html" with d=user_dict key=True %}
+        </div>
+        <div class="span4">
+            {% include "player-table.html" with d=team.0 %}
+            {% include "player-table.html" with d=team.1 %}
+        </div>
+        <div class="span4">
+            {% include "player-table.html" with d=team.2 %}
+            {% include "player-table.html" with d=team.3 %}
+        </div>
+    </div>
+    {% if forms %}
+    <div class="row-fluid">
+        <div class="span12">
+        <select class="other-select">
+        {% for form in forms %}
+        <option value="{{ form.other.team.name }}">{{ form.other.team.name }}</option>
+        {% endfor %}
+        </select>
+        <form action="" id="tradeform" class="tradeform" method="post">
+            {% for form in forms %}
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            {% endfor %}
+            <input class="btn btn-primary" type="submit" name="propose" id="propse" value="Propose Trade"/>
+        </form>
+    </div>
+    {% endif %}
+</div>

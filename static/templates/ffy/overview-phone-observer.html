@@ -1,0 +1,6 @@
+<div class="container visible-phone">
+    {% include 'player-table.html' with d=free_dict key=True %}
+    {% for d in team_dicts %}
+    {% include 'player-table.html' with d=d %}
+    {% endfor %}
+</div>

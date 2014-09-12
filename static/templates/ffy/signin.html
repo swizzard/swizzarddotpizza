@@ -1,0 +1,50 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} Sign In {% endblock %}
+{% block content %}
+<div class="container hidden-phone">
+    <div class="container spacer"></div>
+        <div class="row-fluid">
+            <div class="span4 offset4 form-action signin">
+                <form action="" id="signin" class="signin" method="post">
+                    {% csrf_token %}
+                    {% bootstrap_form form=form layout="horizontal" %}
+                    {% if error == "disabled" %}
+                        <p class="text-error text-centered">{{ user.username }} is disabled!</p>
+                    {% elif error == "invalid" %}
+                        <p class="text-error text-centered">Error logging in! Please try again, or <a href="/ffy/signup/">sign up</a>.</p>
+                    {% endif %}
+                    {% for error in errors %}
+                    <p class="text-error text-center">{{ error }}</p>
+                    {% endfor %}
+                    {% if username %}
+                    <p>{{ username }}</p>
+                    {% endif %}
+                    {% if password %}
+                    <p>{{ password }}</p>
+                    {% endif %}
+                    <button type="submit" class="btn btn-success">Sign in</button>
+                </form>
+            </div>
+        </div>
+    <div class="container spacer"></div>
+</div>
+<div class="row-fluid visible-phone">
+    <div class="span12 form-action signin visible-phone">
+        <form action="" id="signin-phone" class="signin" method="post">
+            {% csrf_token %}
+            {% bootstrap_form form=form layout="vertical" %}
+            {% if error == "disabled" %}
+                <p class="text-error">{{ user.username }} is disabled!</p>
+            {% elif error == "invalid" %}
+                <p class="text-error">Error logging in! Please try again, or <a href="/ffy/signup/">sign up</a>.</p>
+            {% endif %}
+            {% for error in errors %}
+            <p class="text-error text-center">{{ error }}</p>
+            {% endfor %}
+            <button type="submit" class="btn btn-success">Sign in</button>
+        </form>
+    </div>
+</div>
+{% endblock %}

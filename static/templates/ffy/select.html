@@ -1,0 +1,18 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} Select A Team to Trade With {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <form action="" id="trade-select" class="trade-select" method="post">
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <input class="btn btn-primary" type="submit" name="propose" id="propse" value="Select a Team to Trade With"/>
+        </form>
+        {% for error in errors %}
+        <p class="text-error">{{ error }}</p>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

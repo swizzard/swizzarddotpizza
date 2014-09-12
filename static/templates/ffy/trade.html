@@ -1,0 +1,22 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} Propose a Trade {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    {% include 'player-table.html' with d=user_dict %}
+    {% include 'player-table.html' with d=other_dict %}
+    <div class="row-fluid">
+        <div class="span6 offset3">
+            <form action="" id="propose" class="propose" method="post">
+                {% csrf_token %}
+                {{ trade_form|as_bootstrap }}
+                <input class="btn btn-primary" type="submit" name="propose" id="propse" value="Propose a Trade"/>
+            </form>
+            {% for error in errors %}
+            <p class="text-error">{{ error }}</p>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

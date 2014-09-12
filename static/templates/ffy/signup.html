@@ -1,0 +1,28 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} Sign Up {% endblock %}
+{% block content %}
+<div class="container hidden-phone">
+    <div class="row-fluid">
+        <div class="span4 offset4 form-action signup">
+            <form action="" id="signup" class="signup" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form=form layout="horizontal" %}
+                <button type="submit" class="btn btn-success">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+<div class="container-fluid visible-phone">
+    <div class="row-fluid">
+        <div class="span12 form-action signup">
+            <form action="" id="signup-phone" class="signup" method="post">
+                {% csrf_token %}
+                {% bootstrap_form form=form layout="vertical" %}
+                <button type="submit" class="btn btn-success">Sign up</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

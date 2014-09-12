@@ -1,0 +1,10 @@
+{% load bootstrap_toolkit %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <form action="" id="tradeform" class="tradeform" method="post">
+            {% csrf_token %}
+            {{ form|as_bootstrap }}
+            <input class="btn btn-primary" type="submit" name="propose" id="propse" value="Select a Team to Trade With"/>
+        </form>
+    </div>
+</div>

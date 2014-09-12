@@ -1,0 +1,24 @@
+{% extends "ffy-base.html" %}
+{% load staticfiles %}
+{% load bootstrap_toolkit %}
+{% block title %} {{ user.username }}'s Profile {% endblock %}
+{% block content %}
+<div class="container-fluid">
+    <div class="row-fluid">
+        <div class="span12">
+            <h2>{{ user.username }}'s Profile</h2>
+            <h4>Team Name:  </h4> {{ user.team.name }}<br/>
+            <h4>Email:  </h4> {{ user.email }}<br/>
+            <h4>Name:  </h4> {{ user.first_name }} {{ user.last_name }}
+        </div>
+    </div><br/><br/>
+    <div class="row-fluid form-action profile-form">
+        {% csrf_token %}
+        {% bootstrap_form form=form layout="horizontal" %}
+        {% for error in errors %}
+            <p class="error">{{ error }}</p>
+        {% endfor %}
+        <input type="submit" class="btn btn-primary center" id="profile" name="profile" value="Edit Your Profile"/>
+    </div>
+</div>
+{% endblock %}

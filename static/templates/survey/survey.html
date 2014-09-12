@@ -1,0 +1,29 @@
+{% load bootstrap3 %}
+{% load staticfiles %}
+<div id="main" class="row">
+    <div id="survey" class="col-lg-12">
+        <h2>Survey</h2>
+        <form action="" method="post" class="form col-lg-12">
+            {% csrf_token %}
+            {% for form_group in all_forms %}
+                <div class="form col-lg-12 fg" id="{{ form_group.id }}">
+                    <p>{{ form_group.id }} / {{ num_clusters }}</p>
+                    {% for form in form_group.forms %}
+                        {% bootstrap_form form %}
+                    {% endfor %}
+                {% buttons %}
+                    <button type="button" class="btn btn-primary" id="next-{{ form_group.id }}">Next</button>
+                {% endbuttons %}
+                </div>
+            {% endfor %}
+            <div class="col-lg-12" id="buttons">
+            {% buttons %}
+                <button type="submit" class="btn btn-primary" id="button-main">
+                    Submit
+                </button>
+            {% endbuttons %}
+            </div>
+        </form>
+    </div>
+</div>
+<script src='{% static "survey.js" %}'></script>

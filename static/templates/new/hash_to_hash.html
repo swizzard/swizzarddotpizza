@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load bootstrap_toolkit %}
+{% load staticfiles %}
+{% block title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block big_title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block main-content %}
+    <div class="row-fluid">
+        <div class="span12 text-center"><h3>Hash-To-Hash</h3></div>
+    </div>
+    {% if done %}
+    <div class="row-fluid">
+        <div class="span12 text-center">
+            <h4>You're Done!</h4>
+            <p>Thanks so much!</p>
+        </div>
+    </div>
+    {% elif error %}
+    <div class="row-fluid">
+    	<div class="span12 text-center">
+    		<h5>Sorry, we've encountered an error.</h5>
+    		{% for k,v in session.items %}
+    		<p>{{ k }} : {{ v }}</p>
+    		{% endfor %}
+    	</div>
+    </div>
+    {% else %}
+    {% bootstrap_form form layout="vertical" %}
+        <div class="row-fluid form-action">
+            <div class="span6 tag1 text-center">
+            	{% for tweet in tag1_tweets %}
+            		<div class="well context 1">{{ tweet.munged_text }}</div>
+            	{% endfor %}
+                <h4 id="tag1">{{ tag1 }}</h4>
+                <input type="button" class="btn btn-info center" id="context-tag1" name="context-tag1" value="Context" />
+            </div>
+            <div class="span6 tag2 text-center">
+                {% for tweet in tag2_tweets %}
+            		<div class="well context 2">{{ tweet.munged_text }}</div>
+            	{% endfor %}
+                <h4 id="tag2">{{ tag2 }}</h4>
+                <input type="button" class="btn btn-info center" id="context-tag2" value="Context" />
+            </div>
+        </div>
+        <div>
+            <br />
+               <form action="{{ action }}" class="text-center" method="post" style="margin-top:7%;">
+                   {% csrf_token %}
+                           <input type="submit" class="btn btn-primary center" name="yes" id="yes" value="YES, I think these two tags are co-referential" />
+                           <br /><br />
+                           <input type="submit" class="btn btn-danger center" name="no" id="no" value="NO, I don't think these two tags are co-referential" />
+               </form>
+        </div>
+    {% endif %}
+	<script src="{% static "hth.js" %}"></script>
+{% endblock %}
