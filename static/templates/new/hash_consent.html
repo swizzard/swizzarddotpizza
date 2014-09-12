@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% block title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block big_title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block main-content %}
+	<h2 class="text-center">Hash-to-Hash</h2>
+	<div>
+		<h3 class="text-center">Consent Form</h3>
+		<h4 class="text-center">You have been invited to participate in a research survey</h4>
+		<strong>This survey is conducted under the auspices of the <a href="http://gc.cuny.edu/Home" target="_blank">Graduate Center of the City University of New York</a> and <a href="http://www.qc.cuny.edu/Pages/home.aspx" target="_blank">Queens College</a>.</strong>
+		<br />
+		<p>This survey has been created by <a href="mailto:sraker@gc.cuny.edu">Sam Raker</a> and is supervised by <a href="mailto:andrew@cs.qc.cuny.edu">Dr. Andrew Rosenberg</a>. If you have any questions regarding the survey process, the results of the study,
+		or the research this survey was commissioned for, please contact Sam Raker via email at <a href="mailto:sraker@gc.cuny.edu">sraker@gc.cuny.edu</a>. If you have any questions concerning your rights as a participant in this survey, please contact
+		Barbara P. Lermand, MA, Associate Director, Office of Regulatory Compliance via email at <a href="mailto:barbara.lermand@qc.cuny.edu">barbara.lermand@qc.cuny.edu</a> or by phone at <a href="tel:+1718-997-5415">718-997-5415</a>.</p>
+		<p>The survey consists of randomized pairs of <a href="http://en.wikipedia.org/wiki/Hashtag" target="_blank">hashtags</a> extracted from the social microblogging service <a href="http://www.twitter.com" target="_blank">Twitter</a>.
+		You will be asked to decide whether the two hashtags you are presented with refer to the same <em>entity, concept, or event</em>. There is no 'skip' button; the researchers ask you to make your best guess for each pair. Please approach the task
+		from the perspective of someone seeking to learn <em>more information</em> about the entities, concepts, or events described or referenced by the hashtags presented to you.</p>
+		<p>Participation in this survey is entirely voluntary: you may choose not to participate with no penalties or repercussions, and may end your participation at any time by closing your browser window or by navigating to a different page. No personal
+		information about you will be solicited or stored in any way.</p>
+		<br />
+		<p>By pressing the button labeled "I Consent" below, you assert that you agree to the terms described above, and are at least 18 years of age.</p>
+		<br />
+	</div>
+	<div>
+	<button class="btn btn-success pull-left" type="submit" id="consent" autofocus>I Consent</button>
+	<button class="btn btn-danger pull-right" type="submit" id="no">I Do Not Consent</button>
+	</div>
+{% endblock %}

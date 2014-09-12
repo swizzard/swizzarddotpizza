@@ -1,0 +1,27 @@
+{% load staticfiles %}
+<div class="col-lg-12">
+<h3>Survey Instructions</h3>
+<div id="spiel" class="col-lg-12">
+    <p>
+        The purpose of this survey is to help me evaluate the results of the code I have written for my thesis.
+    </p>
+    <p>
+        You will be shown a number of groups of hashtags. Your task is to examine each group of hashtags and decide which hashtag, if any, are out of place or don't belong.
+    </p>
+    <p>
+        For each group of hashtags, check the box next to any you feel don't belong, or are unrelated to the other hashtags presented. You may check as many as you like; you may also not check any if you feel all the hashtags should be in the same group.
+    </p>
+    <p>
+        When you are done marking out of place hashtags, press the 'Next' button to move on to the next group of hashtags.
+    </p>
+    <p>
+        When you are finished with the last group, press the 'Submit' button to submit your answers. This may take a long time--please don't press the button more than once.
+    </p>
+    <p>
+        If you'd like more information, feel free to email me at <span class="mail"></span>, or stay tuned for the publication of my thesis.
+    </p>
+    <button id="intro-ok" type="button" class="btn btn-primary">OK!</button>
+    <p class="text-center grey" id="close-survey">[ close ]</p>
+</div>
+</div>
+<script src='{% static "intro.js" %}'></script>

@@ -1,0 +1,14 @@
+<div class="row-fluid large-player hidden-phone">
+    <div class="span4">
+        {% include 'player-table.html' with d=free_dict key=True %}
+        {% include 'player-table.html' with d=team_dicts.0 %}
+    </div>
+    <div class="span4">
+        {% include 'player-table.html' with d=team_dicts.1 %}
+        {% include 'player-table.html' with d=team_dicts.2 %}
+    </div>
+    <div class="span4">
+        {% include 'player-table.html' with d=team_dicts.3 %}
+        {% include 'player-table.html' with d=team_dicts.4 %}
+    </div>
+</div>

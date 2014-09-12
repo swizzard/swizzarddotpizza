@@ -1,0 +1,38 @@
+{% load bootstrap_toolkit %}
+{% load staticfiles %}
+<div class="container-fluid hidden-phone">
+    <div class="span6">
+        {% include "player-table.html" with d=user_dict key=True %}
+        <div class="row-fluid form-action">
+            <form action="" id="drop_form" method="post">
+                {{ drop_form|as_bootstrap }}
+                {% for error in errors %}
+                    <p class="text-error">{{ error }}</p>
+                {% endfor %}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary center" id="drop" name="drop" value="Drop Player"/>
+            </form>
+            <a href="http://www.samraker.com/ffy/propose/" class="btn btn-inverse">Propose a Trade</a>
+            <a href="http://www.samraker.com/ffy/review/" class="btn">Review Pending Trades</a>
+        </div>
+        {% if dropped %}
+            <p class="text-success">You have dropped {{ dropped }} from your team</p>
+        {% endif %}
+    </div>
+    <div class="span6">
+        {% include 'player-table.html' with d=free_dict %}
+        <div class="row-fluid form-action">
+            <form action="" id="add_form" method="post">
+                {{ add_form|as_bootstrap }}
+                {% for error in errors %}
+                    <p class="text-error">{{ error }}</p>
+                {% endfor %}
+                {% csrf_token %}
+                <input type="submit" class="btn btn-primary center" id="add" name="add" value="Add Player"/>
+            </form>
+        </div>
+        {% if added %}
+            <p class="text-success">You have added {{ added }} to your team</p>
+        {% endif %}
+    </div>
+</div>

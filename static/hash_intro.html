@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% block title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block big_title %}Sam Raker Dot Com : Hash-to-Hash{% endblock %}
+{% block main-content %}
+    <h3>Hash-to-Hash</h3>
+    <div>
+        <h5>Hello!</h5>
+
+        <p>Welcome to Hash-to-Hash! The purpose of this feature is to help me,
+            your gracious webhost, gather data for my thesis.</p>
+
+        <p>What I'd like you to do is to look at the following pairs of hashtags
+            and judge whether or not you think the two tags in question are <strong>co-referential</strong>.</p>
+
+        <p>The task is completely anonymous--no personal information will be solicited or stored in any way.
+            If you'd like, you can <span class="mail_to">email me</span> if you'd like more information about
+            how this information will be used, or about my thesis in general.</p><br/><br/>
+
+        <p>In order to solicit the best judgments for this task, I ask you to approach it from the perspective
+            of someone who is looking to find <em>more information</em> about the topic(s) suggested by the hashtags.
+        </p>
+
+        <p><strong>NOTE:</strong> There is no "skip" button, so just try your best!</p>
+    </div>
+    <div>
+        <h5>Examples</h5>
+
+        <p>
+        <h6>The following tags would be considered <strong>co-referential</strong>:</h6>
+        <ul>
+            <li><code>#debate</code> and <code>#debate2012</code>
+            <li>
+            <li><code>#ff</code> and <code>#followfriday</code></li>
+            <li><code>#raspberrypi</code> and <code>#raspi</code></li>
+            <li><code>#Twitter</code> and <code>#twitter</code></li>
+            <li><code>#gatsby</code> and <code>#TheGreatGatsby</code></li>
+        </ul>
+        </p>
+        <p>
+        <h6>The following tags would <strong>NOT</strong> be considered co-referential:</h6>
+        <ul>
+            <li><code>#barackobama</code> and <code>#mittromney</code></li>
+            <li><code>#ff</code> and <code>#tbt</code></li>
+            <li><code>#teambreezy</code> and <code>#chrisbrown</code></li>
+            <li><code>#tlot</code> and <code>#tcot</code></li>
+        </ul>
+    </div><br/>
+    <button id="go" type="button" class="btn btn-primary btn-block">OK!</button>
+    <script>
+        $("#go").onclick(function () {
+            window.location = "{% url 'hash_to_hash.compare_hash' i=0 %}"
+        });
+    </script>
+{% endblock %}
