@@ -1,6 +1,6 @@
 $(document).ready(function () {
     'use strict';
-    var do_mail, load_about, load_cv, load_survey, load_vst, close_cv, close_about, close_survey, close_vst, stuff;
+    var do_mail, load_about, load_cv, load_survey, load_vst, close_cv, close_about, close_survey, close_vst, close_all, stuff;
     do_mail = function () {
         $(".mail").html('<a href="mailto:' + ['sa', 'm.r', 'ak', 'er@', 'gm', 'ai', 'l.c', 'om'].join('') + '">Sam Raker</a>');
     };
