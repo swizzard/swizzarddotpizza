@@ -65,7 +65,7 @@ $(document).ready(function () {
     $("#cv-parent").on('click', 'h2', load_cv);
     $("#survey-parent").on('click', 'h2', load_survey);
     $("#vst-parent").on('click', 'h2', load_vst);
-    $("#main-title").on('click', 'h1', close_all);
+    $("h1").on('click', close_all);
 
     switch(window.location.pathname) {
       case "/about/":
