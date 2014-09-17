@@ -21,6 +21,12 @@ $(document).ready(function () {
       $("#vst-parent").html("<h2 id='vst'>Very Silly Things&reg;</h2>");
       return false;
     };
+    close_all = function () {
+      close_about();
+      close_cv();
+      // close_survey();
+      close_vst();
+    }
     load_about = function () {
         $("#about-parent").load("/load_etc/");
         close_vst();
@@ -58,11 +64,7 @@ $(document).ready(function () {
     $("#cv-parent").on('click', 'h2', load_cv);
     $("#survey-parent").on('click', 'h2', load_survey);
     $("#vst-parent").on('click', 'h2', load_vst);
-    $("#main-title").on('click', 'h1', function() {
-      close_about();
-      close_cv();
-      // close_survey();
-      close_vst();});
+    $("#main-title").on('click', 'h1', close_all);
 
     switch(window.location.pathname) {
       case "/about/":
