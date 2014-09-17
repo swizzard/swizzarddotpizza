@@ -26,7 +26,8 @@ $(document).ready(function () {
       close_cv();
       // close_survey();
       close_vst();
-    }
+      return false;
+    };
     load_about = function () {
         $("#about-parent").load("/load_etc/");
         close_vst();
@@ -94,6 +95,7 @@ $(document).ready(function () {
         "close_survey": close_survey,
         "load_vst": load_vst,
         "close_vst": close_vst,
+        "close_all": close_all
     };
     document.stuff = stuff;
 });
