@@ -15,7 +15,6 @@ def upload_to_s3(bucket, fname):
     Get the basename of a file, then upload it to S3
     with the same name
     """
-    print(fname)
     key_name = os.path.basename(fname)
     key = Key(bucket)
     key.key = key_name
