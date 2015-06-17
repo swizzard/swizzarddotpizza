@@ -18,8 +18,8 @@ def upload_to_s3(bucket, fname):
     key_name = os.path.basename(fname)
     key = Key(bucket)
     key.key = key_name
-    key.set_acl('public-read')
     key.set_contents_from_filename(fname)
+    key.set_canned_acl('public-read')
 
 
 def get_bucket():
@@ -28,7 +28,9 @@ def get_bucket():
     """
     conn = S3Connection(config['aws_access_key_id'],
                         config['aws_secret_access_key'])
-    return conn.get_bucket('swizzarddotpizza')
+    bucket = conn.get_bucket('swizzarddotpizza')
+    bucket.set_canned_acl('public-read')
+    return bucket
 
 
 if __name__ == '__main__':
