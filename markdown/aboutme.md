@@ -7,6 +7,9 @@ convinced it's not just something you have to use to pretty up your website.
 I did most of a Comp Ling degree, and I really like NLP and data
 processing/parsing/wrangling/extracting.
 
+[Here](https://s3.amazonaws.com/swizzarddotpizza/resume-spring2015.pdf) is
+my resume, such as it is, if you want it.
+
 ### Personal
 I live in Ridgewood, Queens, with my awesome genius wife. We don't have any
 pets or anything. We watch a lot of tv. It's pretty chill.
