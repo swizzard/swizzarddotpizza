@@ -1,12 +1,3 @@
-.htaccess
-*.py[oc]
-old/*
-hash_out/*
-*.gif
-*.ico
-quickstart.html
-.DS_Store
-.idea/
-website/
-*.sh
-samrakerdotcom/secret.py
+config
+*.log
+__pycache__
