@@ -1,0 +1,4 @@
+git+ssh://git@github.com/swizzard/miniconfig
+flask
+gunicorn
+markdown
