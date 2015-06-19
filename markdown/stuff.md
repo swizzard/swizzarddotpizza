@@ -26,15 +26,12 @@ might be both?
     after you figure out your OAuth stuff (there's some hopefully-helpful stuff
     about that process in the docs), you just decorate a function that returns
     a string or generator, and the rest is easy.
-    \[[source](https://github.com/swizzard/botmaster)\]
 * [miniconfig](https://github.com/swizzard/miniconfig) is a Python
     config-manager thing. There are many like it, but this one is mine.
-    \[[source](https://github.com/swizzard/miniconfig)\]
 * [lyrics](https://github.com/swizzard/lyrics) is a thing I'm writing in
     Clojure to scrape lyrics from one of those free websites and put them in
     Neo4J. The ultimate goal is something like Rap Genius meets
     [COCA](http://corpus.byu.edu/coca/).
-    \[[source](https://github.com/swizzard/lyrics)\]
 * There's also
     [a half-finished parser & lexer written in Go](https://github.com/swizzard/rakerdirz),
     and the remains of my aborted Comp Ling Masters' thesis, in
