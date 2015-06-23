@@ -1,6 +1,6 @@
 ## Stuff
 I've made some stuff. Some of it's helpful, most of it's silly, a few things
-might be both? 
+might be both?
 
 ### Twitter Bots
 
@@ -15,6 +15,9 @@ might be both?
     [@pareene](http://twitter.com/pareene) tweeted about it once and I thought
     it was a funny idea? I don't know.
     \[[source](https://github.com/swizzard/true_charlie_brown)\]
+* [@civ5_jobs](https://twitter.com/civ5_jobs) answers the question "What if
+    ~~I~~ someone took the whole 'such-and-such ninja' cliche _too far_?"
+    \[[source](https://github.com/swizzard/civjobs)\]
 
 ### Other stuff
 
