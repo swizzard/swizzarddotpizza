@@ -13,3 +13,5 @@ my resume, such as it is, if you want it.
 ### Personal
 I live in Ridgewood, Queens, with my awesome wife. We don't have any
 pets or anything. We watch a lot of tv. It's pretty chill.
+
+I also have a [blog](http://blog.swizzard.pizza), at least for now.
