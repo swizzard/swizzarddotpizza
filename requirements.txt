@@ -1,4 +1,4 @@
-git+ssh://git@github.com/swizzard/miniconfig
+git+https://github.com/swizzard/miniconfig
 flask
 gunicorn
 markdown
