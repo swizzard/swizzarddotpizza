@@ -1,6 +1,6 @@
 ## About Me
 ### Professional
-I do Python webdev stuff at a lil' startup called [https://roikoi.com](Roikoi).  
+I do Python webdev stuff at a lil' startup called [Roikoi](https://roikoi.com).  
 I did most of a Comp Ling degree, and I really like NLP and data
 processing/parsing/wrangling/extracting.
 
