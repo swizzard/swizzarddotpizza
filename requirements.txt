@@ -1,5 +1,0 @@
-git+https://github.com/swizzard/miniconfig#egg=miniconfig
-flask
-gunicorn
-markdown
-boto
