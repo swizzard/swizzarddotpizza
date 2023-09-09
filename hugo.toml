@@ -1,0 +1,5 @@
+baseURL = 'https://swizzard.pizza/'
+languageCode = 'en-us'
+title = 'swizzard dot pizza'
+theme = 'hugo'
+contentDir = './content/'

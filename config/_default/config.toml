@@ -1,0 +1,13 @@
+title = 'swizzard dot pizza'
+baseURL = 'https://swizzard.pizza/'
+
+defaultContentLanguage = 'en'
+languageCode = 'en-us'
+
+googleAnalytics = ''
+
+enableGitInfo = true
+
+markup.highlight.noClasses = false
+
+theme = 'docura'
