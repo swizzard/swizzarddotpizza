@@ -1,0 +1,16 @@
+title = 'swizzard dot pizza'
+baseURL = 'https://swizzard.pizza/'
+
+defaultContentLanguage = 'en'
+languageCode = 'en-us'
+
+enableGitInfo = true
+
+theme = ['sdp', 'docura']
+
+[markup]
+highlight.noClasses = false
+defaultMarkdownHandler = 'goldmark'
+[markup.goldmark]
+[markup.goldmark.extensions]
+GFM = true

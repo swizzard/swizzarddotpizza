@@ -1,0 +1,30 @@
+<footer id="site-footer">
+  <!-- copyright -->
+  <div id="site-footer-copyright">
+    <a href="{{ .Site.Params.authorURL }}" target="_blank">
+      <i class="icon icon-copyright"></i> {{ if .Site.Params.projectStartYear }}{{ .Site.Params.projectStartYear }}-{{
+      end }}{{ .Site.Params.currentYear }} {{ .Site.Params.author }}
+    </a>
+  </div>
+
+  <!-- social -->
+  <div id="site-footer-social">
+    {{with .Site.Params.githubURL}}
+    <a href="{{.}}" target="_blank" aria-label="github url">
+      &#128104;&#8205;&#128187;
+    </a>
+    {{end}}
+
+    {{with .Site.Params.cohostURL}}
+    <a href="{{.}}" target="_blank" aria-lable="cohost url">
+      &#127780;&#65039;
+    </a>
+    {{ end}}
+
+    {{with .Site.Params.blueskyURL}}
+    <a href="{{.}}" target="_blank" aria-lable="bluesky url">
+      &#129730;
+    </a>
+    {{end}}
+  </div>
+</footer>

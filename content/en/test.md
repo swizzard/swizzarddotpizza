@@ -1,8 +1,13 @@
 ---
-title: "Content Placeholder"
-_build:
-  render: never
-  list: never
-  publishResources: false
+title: "test"
+layout: 'single'
+publish: false
 ---
 
+# markdown
+
+content
+
+## subheading
+
+other content

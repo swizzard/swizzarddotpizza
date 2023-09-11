@@ -1,5 +1,1 @@
-baseURL = 'https://swizzard.pizza/'
-languageCode = 'en-us'
-title = 'swizzard dot pizza'
-theme = 'hugo'
-contentDir = './content/'
+/home/samraker/swizzarddotpizza-static/config/_default/hugo.toml
