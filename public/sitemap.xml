@@ -3,10 +3,13 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://swizzard.pizza/</loc>
-    <lastmod>2023-09-09T19:39:12-04:00</lastmod>
+    <lastmod>2023-09-11T11:20:50-04:00</lastmod>
   </url><url>
     <loc>https://swizzard.pizza/categories/</loc>
   </url><url>
     <loc>https://swizzard.pizza/tags/</loc>
+  </url><url>
+    <loc>https://swizzard.pizza/test/</loc>
+    <lastmod>2023-09-11T07:30:58-04:00</lastmod>
   </url>
 </urlset>
