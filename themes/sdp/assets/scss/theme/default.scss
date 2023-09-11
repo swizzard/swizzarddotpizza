@@ -33,6 +33,9 @@ footer#article-footer {
 @media (min-width: 1024px) {
   #site-footer {
     grid-template-columns: repeat(2, 1fr);
+    #site-footer-social a {
+      font-size: 2em;
+    }
   }
   header.homepage-header {
     min-width: 7.5%;
