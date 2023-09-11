@@ -1,7 +1,8 @@
 description = "Sam Raker's Website"
 
 author = 'Sam Raker'
-authorURL = 'https://your-site.com/'
+authorURL = 'https://swizzard.pizza/'
+authorEmail = 'me@swizzard.pizza'
 
 currentYear = 2023
 

@@ -1,8 +1,9 @@
 <footer id="site-footer">
   <!-- copyright -->
   <div id="site-footer-copyright">
-    <a href="{{ .Site.Params.authorURL }}" target="_blank">
-      <i class="icon icon-copyright"></i> {{ if .Site.Params.projectStartYear }}{{ .Site.Params.projectStartYear }}-{{
+    <a href="malito:{{ .Site.Params.authorEmail }}" target="_blank">
+      &copy;
+      {{ if .Site.Params.projectStartYear }}{{ .Site.Params.projectStartYear }}-{{
       end }}{{ .Site.Params.currentYear }} {{ .Site.Params.author }}
     </a>
   </div>
