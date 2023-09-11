@@ -1,13 +1,13 @@
 {
 	"version": 3,
 	"file": "default.css",
-	"sourceRoot": "/home/samraker/swizzarddotpizza-static",
+	"sourceRoot": "/home/samraker/swizzarddotpizza",
 	"sources": [
 		"themes/sdp/assets/scss/theme/default.scss"
 	],
 	"sourcesContent": [
-		":root {\n  --background: #000000;\n  --color: #FFFFFF;\n  --color2: #EB8643;\n  --color3: #0027D6;\n}\n\nheader, footer {\n  border: 1px solid var(--color3);\n  padding: 5px;\n}\nmain {\n  border-right: 1px solid var(--color3);\n}\n\nheader.homepage-header {\n  border-top: 0px;\n  border-bottom: 0px;\n}\n\nheader#article-header {\n  border: none;\n};\n\nfooter#article-footer {\n  border: none;\n};\n\n#site-footer {\n  grid-template-columns: 100fr 1fr;\n}\n\n@media (min-width: 1024px) {\n  #site-footer {\n    grid-template-columns: repeat(2, 1fr);\n  }\n  header.homepage-header {\n    min-width: 7.5%;\n    text-align: center;\n  };\n}\n"
+		":root {\n  --background: #000000;\n  --color: #FFFFFF;\n  --color2: #EB8643;\n  --color3: #0027D6;\n}\n\nheader, footer {\n  border: 1px solid var(--color3);\n  padding: 5px;\n}\nmain {\n  border-right: 1px solid var(--color3);\n}\n\nheader.homepage-header {\n  border-top: 0px;\n  border-bottom: 0px;\n}\n\nheader#article-header {\n  border: none;\n};\n\nfooter#article-footer {\n  border: none;\n};\n\n#site-footer {\n  grid-template-columns: 100fr 1fr;\n}\n\n@media (min-width: 1024px) {\n  #site-footer {\n    grid-template-columns: repeat(2, 1fr);\n    #site-footer-social a {\n      font-size: 2em;\n    }\n  }\n  header.homepage-header {\n    min-width: 7.5%;\n    text-align: center;\n  };\n}\n"
 	],
 	"names": [],
-	"mappings": "CAAC,AAAD,IAAK,AAAC,CACJ,YAAY,CAAA,QAAC,CACb,OAAO,CAAA,QAAC,CACR,QAAQ,CAAA,QAAC,CACT,QAAQ,CAAA,QAAC,CACV,AAED,AAAA,MAAM,CAAE,MAAM,AAAC,CACb,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,aAAa,CAC/B,OAAO,CAAE,GAAG,CACb,AACD,AAAA,IAAI,AAAC,CACH,YAAY,CAAE,GAAG,CAAC,KAAK,CAAC,aAAa,CACtC,AAED,AAAA,MAAM,AAAA,gBAAgB,AAAC,CACrB,UAAU,CAAE,GAAG,CACf,aAAa,CAAE,GAAG,CACnB,AAED,AAAA,MAAM,AAAA,eAAe,AAAC,CACpB,MAAM,CAAE,IAAI,CACb,AAED,AAAA,MAAM,AAAA,eAAe,AAAC,CACpB,MAAM,CAAE,IAAI,CACb,AAED,AAAA,YAAY,AAAC,CACX,qBAAqB,CAAE,SAAS,CACjC,AAED,MAAM,oBACJ,CAAA,AAAA,YAAY,AAAC,CACX,qBAAqB,CAAE,cAAc,CACtC,AACD,AAAA,MAAM,AAAA,gBAAgB,AAAC,CACrB,SAAS,CAAE,IAAI,CACf,UAAU,CAAE,MAAM,CACnB,CAJA"
+	"mappings": "CAAC,AAAD,IAAK,AAAC,CACJ,YAAY,CAAA,QAAC,CACb,OAAO,CAAA,QAAC,CACR,QAAQ,CAAA,QAAC,CACT,QAAQ,CAAA,QAAC,CACV,AAED,AAAA,MAAM,CAAE,MAAM,AAAC,CACb,MAAM,CAAE,GAAG,CAAC,KAAK,CAAC,aAAa,CAC/B,OAAO,CAAE,GAAG,CACb,AACD,AAAA,IAAI,AAAC,CACH,YAAY,CAAE,GAAG,CAAC,KAAK,CAAC,aAAa,CACtC,AAED,AAAA,MAAM,AAAA,gBAAgB,AAAC,CACrB,UAAU,CAAE,GAAG,CACf,aAAa,CAAE,GAAG,CACnB,AAED,AAAA,MAAM,AAAA,eAAe,AAAC,CACpB,MAAM,CAAE,IAAI,CACb,AAED,AAAA,MAAM,AAAA,eAAe,AAAC,CACpB,MAAM,CAAE,IAAI,CACb,AAED,AAAA,YAAY,AAAC,CACX,qBAAqB,CAAE,SAAS,CACjC,AAED,MAAM,oBACJ,CAAA,AAAA,YAAY,AAAC,CACX,qBAAqB,CAAE,cAAc,CAItC,AALD,AAEE,YAFU,CAEV,mBAAmB,CAAC,CAAC,AAAC,CACpB,SAAS,CAAE,GAAG,CACf,AAEH,AAAA,MAAM,AAAA,gBAAgB,AAAC,CACrB,SAAS,CAAE,IAAI,CACf,UAAU,CAAE,MAAM,CACnB,CAJA"
 }

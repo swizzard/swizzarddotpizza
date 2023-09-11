@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "home.css",
-	"sourceRoot": "/home/samraker/swizzarddotpizza-static",
+	"sourceRoot": "/home/samraker/swizzarddotpizza",
 	"sources": [
 		"themes/docura/assets/scss/home.scss",
 		"themes/docura/assets/scss/reset.scss",
