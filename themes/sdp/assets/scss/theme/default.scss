@@ -4,6 +4,7 @@
   --color2: #EB8643;
   --color3: #0027D6;
   --color-anchor: var(--color2);
+  --
 }
 
 header, footer {
@@ -35,24 +36,52 @@ article div#article-content {
   a:visited {
     color: var(--color3);
   }
+  code {
+    padding: 0;
+    font-size: 100%;
+  }
+  p {
+    code {
+      opacity: 0.8;
+    }
+  }
   details {
-    padding-top: 1%;
+    padding-top: 0.75%;
     margin-bottom: -1%;
     
     &[open] {
       padding: 3% 0%;
+
+      & > summary::after {
+        content: "\274C";
+        float: right;
+      }
     }
 
     summary {
       display: block;
       color: var(--color2);
       padding-bottom: 0.5%;
+      cursor: pointer;
+      
+      &:hover {
+        text-decoration: underline;
+      }
     }
     div.aside {
       display: inline-block;
       margin-right: 0px;
       border: 1px solid var(--color3);
     }
+  }
+  sup {
+    font-size: 75%;
+    line-height: 0;
+    position: relative;
+    top: -0.5em;
+  }
+  div.footnotes {
+    margin-top: 20%;
   }
 }
 
