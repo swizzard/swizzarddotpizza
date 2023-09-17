@@ -3,6 +3,7 @@
   --color: #FFFFFF;
   --color2: #EB8643;
   --color3: #0027D6;
+  --color-anchor: var(--color2);
 }
 
 header, footer {
@@ -28,6 +29,31 @@ footer#article-footer {
 
 #site-footer {
   grid-template-columns: 100fr 1fr;
+}
+
+article div#article-content {
+  a:visited {
+    color: var(--color3);
+  }
+  details {
+    padding-top: 1%;
+    margin-bottom: -1%;
+    
+    &[open] {
+      padding: 3% 0%;
+    }
+
+    summary {
+      display: block;
+      color: var(--color2);
+      padding-bottom: 0.5%;
+    }
+    div.aside {
+      display: inline-block;
+      margin-right: 0px;
+      border: 1px solid var(--color3);
+    }
+  }
 }
 
 @media (min-width: 1024px) {

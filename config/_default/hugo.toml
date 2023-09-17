@@ -5,6 +5,7 @@ defaultContentLanguage = 'en'
 languageCode = 'en-us'
 
 enableGitInfo = true
+enableEmoji = true
 
 theme = ['sdp', 'docura']
 
