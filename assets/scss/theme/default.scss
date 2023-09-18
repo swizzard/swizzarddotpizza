@@ -4,6 +4,8 @@
   --color2: #EB8643;
   --color3: #0027D6;
   --color-anchor: var(--color2);
+  --text-font: "Zen Old Mincho", serif;
+  --code-font: "Martian Mono", monospace;
 }
 
 header, footer {
@@ -32,12 +34,14 @@ footer#article-footer {
 }
 
 article div#article-content {
+  font-family: var(--text-font);
   a:visited {
     color: var(--color3);
   }
   code {
     padding: 0;
-    font-size: 100%;
+    font-size: 70%;
+    font-family: var(--code-font);
   }
   p {
     code {

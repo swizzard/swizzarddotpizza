@@ -4,7 +4,7 @@
 {{ $baseStyle := resources.Get "scss/base.scss" | resources.ToCSS $options }}
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair:opsz@5..1200&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Zen+Old+Mincho:wght@500&family=Martian+Mono" rel="stylesheet">
 {{ if .IsHome }}
 <link rel="stylesheet" href="{{ $homeStyle.RelPermalink }}" integrity="{{ $homeStyle.Data.integrity }}">
 <link rel="preload" href="{{ $baseStyle.RelPermalink }}" as="style" onload="this.rel='stylesheet'"
