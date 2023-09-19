@@ -86,8 +86,46 @@ Those of you familiar with modern OOP terminology might be having some brain fiz
 It's admittedly more common nowadays to talk about `methods` than `messages`, but the concepts are roughly isomorphic: calling an object's method is just sending a specific message to that object. The complementary half is less
 apparent in mixed-paradigm languages like Python or Ruby but more so in (often compiled) languages that still enforce a single entry point like C\+\+, where a program's call graph can easily be viewed as a network of sent and received messages.
 
-I also didn't say anything about `inheritance`. This is intentional. While it's come to be closely associated with OOP, it's not a necessary or sufficient condition; indeed, there's [evidence](https://www.cs.tufts.edu/comp/150FP/archive/kristen-nygaard/hopl-simula.pdf) that its
-inclusion in Simula 67 was basically a hack. Furthermore, it's trivial to show that OOP inheritance has no equivalent of any kind in the relational model and such an exercise is left to the reader.
+I also didn't say anything about `inheritance`. This is intentional. While it's come to be closely associated with OOP, it's not a necessary or sufficient property; indeed, there's [evidence](https://www.cs.tufts.edu/comp/150FP/archive/kristen-nygaard/hopl-simula.pdf) that its
+inclusion in Simula 67 was basically a hack. Furthermore, it's trivial to show that OOP inheritance has no equivalent of any kind in the relational model; such an exercise is left to the reader.
+
+#### 2.1.3 The Impedance Mismatch
+[From this perspective](https://youtu.be/hzzQ7hXQ7qk?si=ygMRhb0EgkJOEHpO), the seams and rough edges perhaps become more apparent. Simply put:
+
+_A `row` is not an `object`._
+
+How could it be? How can a `row` in a table be said to "send" or "receive" messages in any way? `insert` is the only "row-level" action available in an RDBMS; `delete`, `select`, and `update` all operate at, minimally, the table-level
+
+"Aha!" you say, not being a dummy, "of course a `row` isn't an `object`, `table`s are `object`s!"
+
+`table`s are certainly closer, my rhetorical non-dummy interlocutor. Indeed, here is a `table` that would meet the aforementioned criteria
+
+```sql
+CREATE TABLE object (
+  id BIGINT UNIQUE
+  x INTEGER
+  words TEXT
+ }
+ ```
+ 
+ Can we send it messages (`delete`, `insert`, `select`, `update`)? :check_mark:    
+ Does it "own" its data? Sure, why not.
+ 
+ Is it _useful_? :x:
+ 
+ We can't have an auto-incrementing primary key, because that relies on a `sequence` exterior to our table. We can't have foreign keys, because their integrity also relies on data that doesn't "belong" to our table.
+ 
+ So sure, we can create a trivial (in all senses) relational database that contains tables that technically meet the definition of `object`.
+ 
+
+But an ORM doesn't model tables, it models rows, which we've pretty definitively proven are _nothing_ like `object`s.
+
+
+### 2.2 Practice
+ORMs are convenient in many ways. Being born out of web development, they reify and ease many of the facets of the usual opinion of web devs towards their databases: Weird Scary Places Where The Data Live. ORMs promise that you'll never
+have to think about Gross Old SQL; you'll just use your Cool Modern Language and have all your data Right There.
+
+
 
 
 [^1]: In this&mdash;and pretty much this alone&mdash;it is similar to the relational model.
