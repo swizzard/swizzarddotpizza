@@ -1,21 +1,2 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>swizzard dot pizza</title>
-    <link>https://swizzard.pizza/</link>
-    <description>Recent content on swizzard dot pizza</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 09 Sep 2023 19:39:12 -0400</lastBuildDate><atom:link href="https://swizzard.pizza/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>test</title>
-      <link>https://swizzard.pizza/test/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://swizzard.pizza/test/</guid>
-      <description>markdown content
-subheading other content</description>
-    </item>
-    
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>swizzard dot pizza</title><link>https://swizzard.pizza/</link><description>Recent content on swizzard dot pizza</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 09 Sep 2023 19:39:12 -0400</lastBuildDate><atom:link href="https://swizzard.pizza/index.xml" rel="self" type="application/rss+xml"/><item><title>test</title><link>https://swizzard.pizza/test/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://swizzard.pizza/test/</guid><description>markdown content
+subheading other content</description></item></channel></rss>
