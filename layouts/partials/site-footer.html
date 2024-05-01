@@ -2,9 +2,9 @@
   <!-- copyright -->
   <div id="site-footer-copyright">
     <a href="malito:{{ .Site.Params.authorEmail }}" target="_blank">
-      &copy;
-      {{ if .Site.Params.projectStartYear }}{{ .Site.Params.projectStartYear }}-{{
-      end }}{{ .Site.Params.currentYear }} {{ .Site.Params.author }}
+      &copy; {{ if .Site.Params.projectStartYear }}{{
+      .Site.Params.projectStartYear }}-{{ end }}{{ .Site.Params.currentYear }}
+      {{ .Site.Params.author }}
     </a>
   </div>
 
@@ -14,18 +14,12 @@
     <a href="{{.}}" target="_blank" aria-label="github url">
       &#128104;&#8205;&#128187;
     </a>
-    {{end}}
-
-    {{with .Site.Params.cohostURL}}
+    {{end}} {{with .Site.Params.blueskyURL}}
     <a href="{{.}}" target="_blank" aria-lable="cohost url">
       &#127780;&#65039;
     </a>
-    {{ end}}
-
-    {{with .Site.Params.blueskyURL}}
-    <a href="{{.}}" target="_blank" aria-lable="bluesky url">
-      &#129730;
-    </a>
+    {{ end}} {{with .Site.Params.cohostURL}}
+    <a href="{{.}}" target="_blank" aria-lable="bluesky url"> &#129730; </a>
     {{end}}
   </div>
 </footer>
