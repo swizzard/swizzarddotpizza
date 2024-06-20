@@ -4,4 +4,3 @@ TZ = "America/New_York"
 
 [build]
 publish = "public"
-command = 'hugo'
