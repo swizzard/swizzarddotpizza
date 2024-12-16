@@ -1,8 +1,0 @@
-<details>
-  <summary>{{ with index .Params "emoji" }}<span class="aside-emoji">{{ or . ":locomotive:" | emojify }} </span>{{ end
-    }}{{ .Get
-    "summary" }}</summary>
-  <div class="aside">
-    {{ .Inner | markdownify }}
-  </div>
-</details>
