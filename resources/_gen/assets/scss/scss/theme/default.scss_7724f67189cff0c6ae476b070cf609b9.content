@@ -1,3 +1,0 @@
-:root{--background: #fff8ee;--color: #4e4637;--color2: #4e4637;--color3: #0027d6;--color-anchor: var(--color2);--text-font: "Zen Old Mincho", serif;--code-font: "Martian Mono", monospace}body{display:flex;flex-direction:column}#site-header{display:flex;align-items:center;justify-content:center}#site-footer{display:flex;justify-content:center;margin-bottom:1em}section.cover{justify-content:center}section.cover p{max-width:50%;text-align:center;font-size:1.5em}section.cover a{color:var(--color3)}section.cover a:visited{color:var(--color3)}
-
-/*# sourceMappingURL=default.css.map */

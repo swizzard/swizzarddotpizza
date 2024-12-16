@@ -1,6 +1,0 @@
-{{ $dropdown := resources.Get "js/component/dropdown.js" }}
-{{ $articleNav := resources.Get "js/component/article-nav.js" }}
-{{ $toc := resources.Get "js/component/toc.js" }}
-{{ $baseJs := slice $dropdown $articleNav $toc | resources.Concat "js/base.js" | minify }}
-
-<script type="text/javascript" src="{{ $baseJs.RelPermalink }}"></script>

@@ -1,0 +1,37 @@
+:root {
+  --bg-primary: #dadbcc;
+  --text-primary: #464838;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  min-height: 100%;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  text-align: center;
+}
+
+a {
+  color: var(--text-primary);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+a:hover {
+  color: #bae1e3;
+}
+
+a:visited {
+  color: #abae89;
+}
+
+div {
+  padding: 10px;
+}
+
+#selfie {
+  border-radius: 50%;
+}
