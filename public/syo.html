@@ -1,34 +1,318 @@
 <!doctype html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="description" content="swizzard dot pizza" />
+    <meta property="og:description" content="swizzard dot pizza" />
+    <meta property="twitter:description" content="swizzard dot pizza" />
+    <meta property="og:image" content="./selfie256.jpg" />
+    <meta property="twitter:image" content="./selfie256.jpg" />
+    <title>swizzard dot pizza</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./post.css" />
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-  <meta name="description" content="swizzard dot pizza" />
-  <meta property="og:description" content="swizzard dot pizza" />
-  <meta property="twitter:description" content="swizzard dot pizza" />
-  <meta property="og:image" content="./selfie256.jpg" />
-  <meta property="twitter:image" content="./selfie256.jpg" />
-  <title>swizzard dot pizza</title>
-  <link rel="stylesheet" href="./style.css" />
-  <link rel="stylesheet" href="./post.css" />
-</head>
+  <body>
+    <div>
+      <h1>Scrap Your ORM</h1>
+    </div>
+    <div class="section">
+      <h2>1</h2>
+      <p>
+        <a href="https://en.wikipedia.org/wiki/Relational_model" target="_blank"
+          >relations</a
+        >
+        aren't
+        <a
+          href="https://en.wikipedia.org/wiki/Object_(computer_science)"
+          target="_blank"
+          >objects</a
+        >.
+      </p>
+      <p>rows aren't objects.</p>
+      <p>tables aren't even objects<sup>note 1</sup>.</p>
+      <p>
+        a relational database (management system) <i>is</i> an object, but
+        <strong>ORMs don't model the entire database</strong>
+        <sup>note 2</sup>.
+      </p>
+      <details class="note">
+        <summary>note 1</summary>
+        a table that has no foreign key or sequence columns and none of whose
+        columns are referenced by foreign keys on any other table could
+        conceivably "count" as an object, but such a table is neither realistic
+        nor particularly useful.
+      </details>
+      <details class="note">
+        <summary>note 2</summary>
+        at least not well—perhaps as a meager API begrudgingly exposed through a
+        `Connection` object, or in a smattering of arcane methods indifferently
+        stuffed in the back of the documentation.
+      </details>
+    </div>
+    <div class="section">
+      <h2>2</h2>
+      <p>
+        <span data-tooltip="(the database your code is interacting with)"
+          >your database</span
+        >
+        is at least a separate process; most commonly, it's running on a
+        completely separate machine.
+      </p>
+      <p>
+        your database is an <i>application</i>, one that has an
+        <i>application programming interface</i>.
+      </p>
+      <p>
+        this low-level API includes things like escaping content and connection
+        management. there are client libraries written for it;
+        <span data-tooltip="(the ORM  library your code is using)"
+          >your ORM</span
+        >
+        depends on one or more of them, opaquely.
+      </p>
+    </div>
+    <div class="section">
+      <h2>3</h2>
+      <p>
+        your database is <i>not</i> your server. data in your database is
+        <i>not</i> data in your process. that data is not coming from the cache,
+        or from local memory at all. moving data from or to your database is an
+        API call.
+      </p>
+      <p>
+        the client library your ORM hides from you knows this. that is one
+        reason your ORM hides the client library it uses from you.
+      </p>
+      <p>
+        to let you treat data that lives in the database the same as data that
+        lives in local memory—to erase the distance between that separate entity
+        and your code—is a promise your ORM makes.
+      </p>
+    </div>
+    <div class="section">
+      <h2>4</h2>
+      <p>
+        the outcome of a database query is a snapshot of some portion of that
+        database <i>at the time of the query</i>. once a query has been executed
+        and its result made visible, the connection to "the truth" has already
+        been severed.
+      </p>
+      <p>
+        objects initialized with the results of queries also lack that epistemic
+        connection—the `email` field of a `Author` object varies in complete
+        independence from the `email` column of the `authors` table.
+      </p>
+      <p>
+        initializing objects with the results of queries is one of two things
+        your ORM does.
+        <details class="aside">
+          <summary>aside: mitigation</summary>
+          <a
+            href="https://en.wikipedia.org/wiki/Database_transaction"
+            target="_blank"
+            ><code>transactions</code></a
+          >
+          are one affordance your database offers to mitigate issues this
+          transiency can cause; there may be others depending on implementation.
+          since ORMs don't model the database, taking advantage of said
+          affordances is often unidiomatic and awkward, and not infrequently
+          wholly infeasible.
+        </details>
+      </p>
 
-<body>
-  <div>
-    <h1>Scrap Your ORM</h1>
-  </div>
-  <div>
-    <h2>1</h2>
-    <p><a href="https://en.wikipedia.org/wiki/Relational_model" target="_blank">relations</a> aren't <a
-        href="https://en.wikipedia.org/wiki/Object_(computer_science)" target="_blank">objects</a>.</p>
-    <p>rows aren't objects.</p>
-    <p>tables aren't even objects<super>note 1</super>.</p>
-    <p>a relational database (management system) <i>is</i> an object, but <strong>ORMs don't model the entire
-        database</strong>
-      <super>note 2</super>.
-
-</body>
-
+      <p>
+        to write a changed field back into the database involves tearing the
+        object apart and overwriting rows in the database, based on what is
+        hoped to be a stable and unique set of identifiers.
+      </p>
+    </div>
+    <div class="section">
+      <h2>5</h2>
+      <p>
+        Your database has another API:
+        <a href="https://en.wikipedia.org/wiki/SQL" target="_blank">SQL</a>.
+      </p>
+      <p>
+        SQL is the <i>only</i> way of interacting with the kind of RDBMS under
+        discussion. there is no bytecode, no assembly. there are no macros or
+        compiler flags.
+      </p>
+      <p>There Is Only SQL.</p>
+      <details class="aside">
+        <summary>aside: SQL +</summary>
+        actually, There Is Only SQL + whatever helpful commands are exposed by
+        the RDMS's interactive mode—like
+        <code>psql</code>'s backslash commands, <code>sqlite3</code>'s dot
+        commands, or <code>mysql</code>'s "Database Administration
+        Statements"—but since those commands are only available when using the
+        interactive client, there's no way or need to make use of them when
+        writing code.
+      </details>
+      <p>
+        SQL is a programming language that is interpreted by the database
+        itself. there is more readable SQL and less readable SQL; there is more
+        performant SQL and less performant SQL. there are ways you can architect
+        your tables etc. that make it easier or harder to write more or less
+        readable or performant SQL in much the same way that there are ways you
+        can architect your application towards similar ends.
+      </p>
+      <details class="aside">
+        <summary>aside: aid</summary>
+        among those helpful commands mentioned earlier are tools like
+        <code>EXPLAIN</code>, available in both <code>psql</code> and
+        <code>mysql</code>, that can help you write at least more performant
+        SQL.
+      </details>
+      <p>
+        your ORM produces SQL based on your code that it then sends to your
+        database via a client library.
+      </p>
+      <p>
+        producing SQL based on your code and sending it to your database via a
+        client library is the second of two things your ORM does.
+      </p>
+      <p>
+        you have no direct control over the SQL your ORM produces based on the
+        code you write.
+      </p>
+      <p>
+        your ORM does not show you the SQL it produces based on your code unless
+        you specifically ask it to. it does not show you the SQL it produces
+        because it is technically unnecessary to do so, and because the SQL it
+        produces is usually neither readable nor performant.
+      </p>
+    </div>
+    <div class="section">
+      <h2>6</h2>
+      <p>
+        because ORMs model tables, maintaining the illusion that its objects are
+        "normal" usually results in producing SQL that retrieves every column,
+        usually by name. your ORM may also unexpectedly produce SQL that join on
+        foreign keys, leaving your HTTP server or machine learning application
+        or CLI tool to deal with having a few hundred<code>Book</code>s in
+        memory when it just wanted an <code>Author</code>'s phone number.
+      </p>
+      <p>
+        you can change your code to get your ORM not to produce SQL like that.
+        if you don't change your code to get your ORM not to produce SQL like
+        that, it will produce SQL like that. the exact ways to change your code
+        to get your ORM not to produce SQL like that might be unidiomatic and
+        ill-documented.
+      </p>
+    </div>
+    <div class="section">
+      <h2>7</h2>
+      <p>
+        because ORMs model tables, idiomaticity and quality of documentation
+        often correlates negatively to the conceptual distance from that focus.
+      </p>
+      <p>
+        database-native functions are treated in a lax and piebald manner. an
+        ORM may elevate favored SQL functions to named methods or other
+        documented constructs; the rest are invoked "stringly" or ignored in
+        favor of equivalent functions run as part of your code.
+      </p>
+    </div>
+    <div class="section">
+      <h2>8</h2>
+      <p>
+        another promise your ORM makes is to let you ignore which specific
+        <span data-tooltip="(e.g. SQLite 3.47 or MariaDB 10.0 or PostgreSQL 14)"
+          >RDBMS implementation</span
+        >
+        is running your database. people like this because despite the existence
+        of
+        <a
+          href="https://blog.ansi.org/sql-standard-iso-iec-9075-2023-ansi-x3-135/"
+          target="_blank"
+          >an ANSI standard</a
+        >
+        every RDBMS implements SQL a little bit differently.
+      </p>
+      <p>your ORM most values not being misunderstood.</p>
+      <p>
+        this concern both limits its output to a kind of "simplified SQL" that
+        often lacks in both readability and performance, and proscribes its
+        "blessed" (idiomatic, ergonomic, well-documented) API surface to favor
+        easily-universalizable SQL constructs.
+      </p>
+      <p>
+        these constructs may or may not be well-suited for your use-cases. your
+        RDBMS may offer different and more fitting constructs.
+      </p>
+      <p>
+        you may be able to change your code to get your ORM to produce
+        different, better-suited SQL. you may be able to change your code to get
+        your ORM to make use of features specific to your RDBMS. to do so is to
+        force your ORM to break a promise; the ways in which you need to change
+        your code will likely be unidiomatic and ill-documented, if they exist
+        at all.
+      </p>
+      <p>your ORM is not a compiler.</p>
+    </div>
+    <div class="section">
+      <h2>9</h2>
+      <p>
+        once your application progresses beyond the most trivial CRUD, there
+        will come a day when Life and its exigencies will present to you and
+        your ORM a problem.
+      </p>
+      <p>
+        it may be a problem of complexity or of scale or of performance; it may
+        be a problem of presenting the contents of your database in a different
+        way.
+      </p>
+      <p>whatever its nature, it will only be solved by you writing SQL.</p>
+      <p>your ORM will fail you.</p>
+    </div>
+    <div class="section">
+      <h2>10</h2>
+      <p>
+        instead: learn SQL. understand the relational model. befriend a client
+        library.
+      </p>
+      <p>
+        instead: recognize the non-monism of your models. know that to create is
+        not to read is not update is not to delete.
+      </p>
+      <p>
+        instead: acknowledge separation. accept distance. embrace a third party.
+      </p>
+      <p>
+        instead: Think about
+        <a
+          href="https://en.wikipedia.org/wiki/Domain-driven_design"
+          target="_blank"
+          >Domains</a
+        >. think about
+        <a
+          href="https://martinfowler.com/eaaCatalog/repository.html"
+          target="_blank"
+          >Repositories</a
+        >. think about the
+        <a href="https://en.wikipedia.org/wiki/Law_of_Demeter" target="_blank"
+          >Law of Demeter</a
+        >
+        and the
+        <a
+          href="https://en.wikipedia.org/wiki/Single-responsibility_principle"
+          target="_blank"
+          >Single-Responsibility Principle</a
+        >.
+      </p>
+      <p>instead: be thoughtful. be deliberate. be consistent. be clear.</p>
+    </div>
+    <div>
+      <p class="coda">
+        thoughts?
+        <a href="https://bsky.app/profile/swizzard.pizza" target="_blank"
+          >@ me</a
+        >
+      </p>
+      <p class="coda">go <a href="/">home</a></p>
+    </div>
+  </body>
 </html>

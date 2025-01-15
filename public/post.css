@@ -1,0 +1,59 @@
+div {
+  text-align: left;
+}
+
+div.section {
+  border: 3px solid var(--text-primary);
+  margin-bottom: 5px;
+}
+
+[data-tooltip] {
+  text-decoration: underline dotted;
+}
+
+[data-tooltip]:hover::after {
+  content: attr(data-tooltip);
+  padding: 2px;
+  display: inline-block;
+  border-radius: 25%;
+  background: var(--text-primary);
+  color: var(--bg-primary);
+}
+
+details {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
+details summary {
+  text-decoration: underline;
+  margin-bottom: 5px;
+}
+
+details[open] {
+  border: 1px solid var(--othertan);
+  padding: 5px;
+  font-size: smaller;
+}
+
+details[open] summary {
+  text-decoration: none;
+  font-size: initial;
+}
+
+details[open] summary::marker {
+  content: "";
+}
+
+details.note summary::marker {
+  content: "📝";
+}
+
+details.aside summary::marker {
+  content: "🙋";
+}
+
+div p.coda {
+  text-align: center;
+  margin: 25px;
+}

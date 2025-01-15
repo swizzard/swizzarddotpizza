@@ -1,6 +1,8 @@
 :root {
   --bg-primary: #dadbcc;
   --text-primary: #464838;
+  --paleblue: #bae1e3;
+  --othertan: #abae89;
 }
 
 html {
@@ -21,11 +23,11 @@ a {
 }
 
 a:hover {
-  color: #bae1e3;
+  color: var(--paleblue);
 }
 
 a:visited {
-  color: #abae89;
+  color: var(--othertan);
 }
 
 div {
