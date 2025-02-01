@@ -1,0 +1,52 @@
+h1 {
+  text-align: center;
+}
+
+div#intro {
+  grid-column: 1 / 5;
+  grid-row: 1 / 2;
+}
+
+div.thought {
+  border: 1px dashed var(--othertan);
+}
+
+div.thought>div {
+  border-bottom: 1px dashed var(--othertan);
+}
+
+div.thought>div:last-child {
+  border-bottom: none;
+}
+
+div#web>div,
+div#misc>div {
+  border-bottom: 1px solid var(--othertan);
+}
+
+div#web>div:last-child,
+div#misc>div:last-child {
+  border-bottom: none;
+}
+
+div.noborder {
+  border-bottom: none !important;
+}
+
+div#coda {
+  text-align: center;
+}
+
+blockquote {
+  border: 1px solid var(--text-primary);
+  padding: 5px;
+}
+
+.book-title {
+  text-transform: uppercase;
+}
+
+p.important {
+  font-weight: bold;
+  text-align: center;
+}
