@@ -37,3 +37,8 @@ div {
 #selfie {
   border-radius: 50%;
 }
+
+div.copyright {
+  text-align: center;
+}
+}

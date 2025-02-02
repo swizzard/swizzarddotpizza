@@ -71,219 +71,222 @@
         your best
       </p>
     </div>
-  </div>
-  <div class="thought">
-    <h2>software</h2>
-    <div id="generally">
-      <h3>generally</h3>
-      <p>
-        <code>components</code> (<a target="_blank" title="Section 1.2"
-          href="https://ics.uci.edu/~fielding/pubs/dissertation/software_arch.htm#sec_1_2">§1.2.1</a>) are a
-        <strong>fantastic</strong> way to think about software
-      </p>
-      <details>
-        <summary>aside: evaluation</summary>
-        generally speaking i found Fielding's methodology for evaluating
-        architectures to be admirable but academic (derogatory). i just
-        can't imagine doing all that in e.g. a meeting with product would
-        actually help. maybe i'm just cynical.
-      </details>
-      <p>
-        a component is differentiated and discrete, defined by its
-        boundaries, its edges, its surface, its interface.
-      </p>
-      <p>
-        the interface is public, the insides are private and can be changed
-        how- and whenever
-      </p>
-      <p>components contain other components</p>
-      <details>
-        <summary>e.g.</summary>
+    <div class="thought">
+      <h2>software</h2>
+      <div id="generally">
+        <h3>generally</h3>
         <p>
-          your application is a component, containing your web application,
-          email service, mobile app, etc.
+          <code>components</code> (<a target="_blank" title="Section 1.2"
+            href="https://ics.uci.edu/~fielding/pubs/dissertation/software_arch.htm#sec_1_2">§1.2.1</a>) are a
+          <strong>fantastic</strong> way to think about software
         </p>
-        <p>
-          your web application is a component, containing your http server,
-          monitoring integrations, task queues, caches, etc.
-        </p>
-        <p>
-          your http server is a component, containing your 'create an
-          article' handler, login/logout handlers, etc.
-        </p>
-        <p>
-          your 'create an article' handler is a component, containing
-          functions that interact with the database, validate inputs, format
-          outputs, etc.
-        </p>
-        <p>and so forth</p>
-      </details>
-      <details>
-        <summary>aside: want/have/need</summary>
-        <p>
-          i like to think about <strong>want</strong>,
-          <strong>have</strong>, and <strong>need</strong>
-        </p>
-        <p>
-          one component, let's call it the <i>caller</i> (although it
-          needn't be a function),
-          <strong>wants</strong>
-          something from another component
-        </p>
-        <p>
-          maybe it wants a user session, maybe it wants a list of posts,
-          maybe it wants access to some shared memory
-        </p>
-        <p>
-          the other component (<i>callee</i>, i guess)
-          <strong>needs</strong> certain things from the caller
-        </p>
-        <p></p>
-        <p>
-          maybe it needs a photo of a check, maybe it needs the value of a
-          certain header, maybe it needs either nothing or an object or a
-          string or between one and seven numbers
-        </p>
-        <p>
-          the key is to make sure the caller <strong>has</strong> what the
-          callee <strong>needs</strong>, and the callee returns what the
-          caller <strong>wants</strong>
-        </p>
-        <p>
-          it seems obvious but you'd be surprised how easy it is to forget
-        </p>
-      </details>
-    </div>
-    <div id="web">
-      <h3>web-specific</h3>
-      <div>
-        <h4>a good quote</h4>
-        <blockquote>
-          An interesting observation about network-based applications is that
-          the best application performance is obtained by not using the network.<sup><a target="_blank"
-              title="Section 2.3"
-              href="https://ics.uci.edu/~fielding/pubs/dissertation/net_app_arch.htm#sec_2_3">§2.3.1.3</a></sup>
-        </blockquote>
-      </div>
-      <div>
-        <h4>"Anarchic Scalability"</h4>
-        <p>the section titled <q>Anarchic Scalability</q><sup><a target="_blank" title="Section 4.1"
-              href="https://ics.uci.edu/~fielding/pubs/dissertation/web_arch_domain.htm#sec_4_1">§4.1.4.1</a></sup>
-          basically boils down to "your users
-          aren't (necessarily)
-          your coworkers"</p>
-        <p>the counterpart to <a href="#discretely">"all other developers aren't (necessarily) your coworkers"</a>,
-          noted earlier</p>
-        <p>
-          it seems obvious but you'd be surprised how easy it is to forget
-        </p>
-        <p>sometimes one gets a vision of Fielding's (imagined, intended) audience</p>
-        <p>when one has never not done '<code>REST</code>ful' web development,
-          one can forget that the things one needs to consider when doing '<code>REST</code>ful' web development
-          differ from the things one might need to consider when getting the robot arms to work together,
-          or making sure people on floor 7 don't use the printer on floor 6</p>
-      </div>
-      <div>
-        <h4>the <code>S</code> in <code>REST</code> stands for <code>State</code></h4>
-        <p>Fielding is <i>very</i> insistant on the client handling state</p>
-        <p>this might surprise you (it surprised me) but</p>
-        <p>the <code>state</code> Fielding means is <strong>the state of the interaction</strong></p>
-        <p>basically: the client drives</p>
-        <p>e.g.: the user's browser sends a <code>GET</code> request with the right headers to <code>/profile</code>,
-          and the server returns text that the user's brower renders as a web page, one that includes a form.
-          the user's brower then sends a <code>PATCH</code> request to <code>/profile</code> with
-          the right headers and body, and the server returns text that the user's browser renders as a web page
-          that shows the updated information</p>
-        <p>the server may never <code>PING</code>, but only <code>PONG</code></p>
-        <p>to the server, <code>GET</code> and <code>PATCH</code> are unrelated&mdash;they might happen to share
-          certain character sequences, or result in the invocation of some of the same code paths, but it's pure
-          coincidence</p>
-      </div>
-      <div>
-        <h4>"Resources" vs "Representations"<sup><a target="_blank" title="Section 5.2"
-              href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2">§5.2.1</a></h4>
-        <p>we all agree organization is important, and we all agree abstractions are important, and we all agree that
-          clarity in thought and expression is important</p>
-        <p>in this spirit, we all carve concepts out of our application, its code and its context</p>
-        <p class="important">these concepts aren't real</p>
-        <p>whiteboards and uml diagrams and okrs and Capitalization can sometimes make us forget</p>
-        <p>the response to <code>GET /posts/123</code> is not 'a post' (or even 'a <code>Post</code>')
-          because <strong>there is no such thing</strong></p>
-        <p>the response is a <strong>representation</strong>, in the form of <code>HTML</code>, or <code>JSON</code>,
-          or something else</p>
-        <p>(content types&mdash;and the <strong>Content-Type</strong> header&mdash;are <code>REST</code>ful
-          innovations)</p>
-        <blockquote>The resource is not the storage object. The resource is not a mechanism that the server uses to
-          handle the storage object. The resource is a conceptual mapping<sup><a target="_blank" title="Section 6.2"
-              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.3</a></sup>...In
-          other words, there
-          are no
-          resources on the server; just mechanisms that supply answers across an abstract interface defined by
-          resources.<sup><a target="_blank" title="Section 6.2"
-              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.4</a></sup>
-        </blockquote>
         <details>
-          <summary>aside: they do exist!</summary>
-          <p>one component of your application may be a database, and in that database there may be a table which is
-            labeled <code>posts</code>, and in that table there may be a row the primary key of which can be
-            interpreted as <code>123</code></p>
-          <p>you will say, this is a <code>Post</code></p>
-          <p>i will say: this is a row in a table in a database. where are the author bio and avatar displayed at the
-            bottom of the HTML response? where is the truncated version of the text returned in the list view?</p>
-          <p>a row in a table in a database can hold data that corresponds to some or even all of what you and your
-            peers mean by <code>Post</code>, but
-            <strong>it is not a <code>Post</code></strong>
+          <summary>aside: evaluation</summary>
+          generally speaking i found Fielding's methodology for evaluating
+          architectures to be admirable but academic (derogatory). i just
+          can't imagine doing all that in e.g. a meeting with product would
+          actually help. maybe i'm just cynical.
+        </details>
+        <p>
+          a component is differentiated and discrete, defined by its
+          boundaries, its edges, its surface, its interface.
+        </p>
+        <p>
+          the interface is public, the insides are private and can be changed
+          how- and whenever
+        </p>
+        <p>components contain other components</p>
+        <details>
+          <summary>e.g.</summary>
+          <p>
+            your application is a component, containing your web application,
+            email service, mobile app, etc.
+          </p>
+          <p>
+            your web application is a component, containing your http server,
+            monitoring integrations, task queues, caches, etc.
+          </p>
+          <p>
+            your http server is a component, containing your 'create an
+            article' handler, login/logout handlers, etc.
+          </p>
+          <p>
+            your 'create an article' handler is a component, containing
+            functions that interact with the database, validate inputs, format
+            outputs, etc.
+          </p>
+          <p>and so forth</p>
+        </details>
+        <details>
+          <summary>aside: want/have/need</summary>
+          <p>
+            i like to think about <strong>want</strong>,
+            <strong>have</strong>, and <strong>need</strong>
+          </p>
+          <p>
+            one component, let's call it the <i>caller</i> (although it
+            needn't be a function),
+            <strong>wants</strong>
+            something from another component
+          </p>
+          <p>
+            maybe it wants a user session, maybe it wants a list of posts,
+            maybe it wants access to some shared memory
+          </p>
+          <p>
+            the other component (<i>callee</i>, i guess)
+            <strong>needs</strong> certain things from the caller
+          </p>
+          <p></p>
+          <p>
+            maybe it needs a photo of a check, maybe it needs the value of a
+            certain header, maybe it needs either nothing or an object or a
+            string or between one and seven numbers
+          </p>
+          <p>
+            the key is to make sure the caller <strong>has</strong> what the
+            callee <strong>needs</strong>, and the callee returns what the
+            caller <strong>wants</strong>
+          </p>
+          <p>
+            it seems obvious but you'd be surprised how easy it is to forget
           </p>
         </details>
       </div>
+      <div id="web">
+        <h3>web-specific</h3>
+        <div>
+          <h4>a good quote</h4>
+          <blockquote>
+            An interesting observation about network-based applications is that
+            the best application performance is obtained by not using the network.<sup><a target="_blank"
+                title="Section 2.3"
+                href="https://ics.uci.edu/~fielding/pubs/dissertation/net_app_arch.htm#sec_2_3">§2.3.1.3</a></sup>
+          </blockquote>
+        </div>
+        <div>
+          <h4>"Anarchic Scalability"</h4>
+          <p>the section titled <q>Anarchic Scalability</q><sup><a target="_blank" title="Section 4.1"
+                href="https://ics.uci.edu/~fielding/pubs/dissertation/web_arch_domain.htm#sec_4_1">§4.1.4.1</a></sup>
+            basically boils down to "your users
+            aren't (necessarily)
+            your coworkers"</p>
+          <p>the counterpart to <a href="#discretely">"all other developers aren't (necessarily) your coworkers"</a>,
+            noted earlier</p>
+          <p>
+            it seems obvious but you'd be surprised how easy it is to forget
+          </p>
+          <p>sometimes one gets a vision of Fielding's (imagined, intended) audience</p>
+          <p>when one has never not done '<code>REST</code>ful' web development,
+            one can forget that the things one needs to consider when doing '<code>REST</code>ful' web development
+            differ from the things one might need to consider when getting the robot arms to work together,
+            or making sure people on floor 7 don't use the printer on floor 6</p>
+        </div>
+        <div>
+          <h4>the <code>S</code> in <code>REST</code> stands for <code>State</code></h4>
+          <p>Fielding is <i>very</i> insistant on the client handling state</p>
+          <p>this might surprise you (it surprised me) but</p>
+          <p>the <code>state</code> Fielding means is <strong>the state of the interaction</strong></p>
+          <p>basically: the client drives</p>
+          <p>e.g.: the user's browser sends a <code>GET</code> request with the right headers to <code>/profile</code>,
+            and the server returns text that the user's brower renders as a web page, one that includes a form.
+            the user's brower then sends a <code>PATCH</code> request to <code>/profile</code> with
+            the right headers and body, and the server returns text that the user's browser renders as a web page
+            that shows the updated information</p>
+          <p>the server may never <code>PING</code>, but only <code>PONG</code></p>
+          <p>to the server, <code>GET</code> and <code>PATCH</code> are unrelated&mdash;they might happen to share
+            certain character sequences, or result in the invocation of some of the same code paths, but it's pure
+            coincidence</p>
+        </div>
+        <div>
+          <h4>"Resources" vs "Representations"<sup><a target="_blank" title="Section 5.2"
+                href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2">§5.2.1</a></h4>
+          <p>we all agree organization is important, and we all agree abstractions are important, and we all agree that
+            clarity in thought and expression is important</p>
+          <p>in this spirit, we all carve concepts out of our application, its code and its context</p>
+          <p class="important">these concepts aren't real</p>
+          <p>whiteboards and uml diagrams and okrs and Capitalization can sometimes make us forget</p>
+          <p>the response to <code>GET /posts/123</code> is not 'a post' (or even 'a <code>Post</code>')
+            because <strong>there is no such thing</strong></p>
+          <p>the response is a <strong>representation</strong>, in the form of <code>HTML</code>, or <code>JSON</code>,
+            or something else</p>
+          <p>(content types&mdash;and the <strong>Content-Type</strong> header&mdash;are <code>REST</code>ful
+            innovations)</p>
+          <blockquote>The resource is not the storage object. The resource is not a mechanism that the server uses to
+            handle the storage object. The resource is a conceptual mapping<sup><a target="_blank" title="Section 6.2"
+                href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.3</a></sup>...In
+            other words, there
+            are no
+            resources on the server; just mechanisms that supply answers across an abstract interface defined by
+            resources.<sup><a target="_blank" title="Section 6.2"
+                href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.4</a></sup>
+          </blockquote>
+          <details>
+            <summary>aside: they do exist!</summary>
+            <p>one component of your application may be a database, and in that database there may be a table which is
+              labeled <code>posts</code>, and in that table there may be a row the primary key of which can be
+              interpreted as <code>123</code></p>
+            <p>you will say, this is a <code>Post</code></p>
+            <p>i will say: this is a row in a table in a database. where are the author bio and avatar displayed at the
+              bottom of the HTML response? where is the truncated version of the text returned in the list view?</p>
+            <p>a row in a table in a database can hold data that corresponds to some or even all of what you and your
+              peers mean by <code>Post</code>, but
+              <strong>it is not a <code>Post</code></strong>
+            </p>
+          </details>
+        </div>
+      </div>
     </div>
-  </div>
-  <div class="thought" id="misc">
-    <h2>misc</h2>
-    <div>
-      <blockquote>"Naturally, the quality of an identifier is often proportional to the amount of money spent to
-        retain its validity, which leads to broken links as ephemeral (or poorly supported) information moves or
-        disappears over time.<sup><a target="_blank" title="Section 5.2"
-            href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2">§5.2.1.1</a>
-      </blockquote>
+    <div class="thought" id="misc">
+      <h2>misc</h2>
+      <div>
+        <blockquote>"Naturally, the quality of an identifier is often proportional to the amount of money spent to
+          retain its validity, which leads to broken links as ephemeral (or poorly supported) information moves or
+          disappears over time.<sup><a target="_blank" title="Section 5.2"
+              href="https://ics.uci.edu/~fielding/pubs/dissertation/rest_arch_style.htm#sec_5_2">§5.2.1.1</a>
+        </blockquote>
+      </div>
+      <div>
+        <blockquote>[T]he server receives the identifier (which identifies the mapping) and applies it to its current
+          mapping implementation (usually a combination of collection-specific deep tree traversal and/or hash tables)
+          to find the currently responsible handler implementation and the handler implementation then selects the
+          appropriate action+response based on the request content.<sup><a target="_blank" title="Section 6.2"
+              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.3</a></sup>
+        </blockquote>
+        <p>this is still how it works, basically</p>
+      </div>
+      <div>
+        <p>the first non-CERN client was written in Perl<sup><a target="_blank" title="Section 6.4"
+              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_4">§6.4.1</a></p>
+        <p>Perl really vanished, even more so than PHP</p>
+        <p>i'd love to read a book about what happened</p>
+      </div>
+      <div>
+        <p>HTTP/1.0 used 1 TCP connection per resource<sup><a target="_blank" title="Section 6.3"
+              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_3">§6.3.3.1</a></sup> (not just
+          the page itself but every script,
+          image, etc.)</p>
+        <p>in retrospect this is hiariously wasteful, on par with <a
+            href="https://www.reddit.com/r/futurama/comments/1hr8vg/my_favourite_futurama_moment/"
+            title="reddit post with a gif in it" target="_blank">Philip J. Fry's oreo technique</a></p>
+      </div>
+      <div class="noborder">
+        <p>speaking of retrospection, how did anyone ever believe in Java applets</p>
+        <blockquote>Java, in contrast, is downloaded as binary packaged archives -- the user is therefore left to trust
+          the security restrictions within the Java execution environment.<sup>[<a target="_blank" title="Section 6.5"
+              href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_5">§6.5.4.3]</blockquote>
+      </div>
     </div>
-    <div>
-      <blockquote>[T]he server receives the identifier (which identifies the mapping) and applies it to its current
-        mapping implementation (usually a combination of collection-specific deep tree traversal and/or hash tables)
-        to find the currently responsible handler implementation and the handler implementation then selects the
-        appropriate action+response based on the request content.<sup><a target="_blank" title="Section 6.2"
-            href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_2">§6.2.3</a></sup></blockquote>
-      <p>this is still how it works, basically</p>
+    <div id="coda">
+      <p>
+        do you have thoughts?
+        <a href="https://bsky.app/profile/swizzard.pizza" target="_blank">@ me</a>
+      </p>
+      <p>go <a href="/">home</a></p>
     </div>
-    <div>
-      <p>the first non-CERN client was written in Perl<sup><a target="_blank" title="Section 6.4"
-            href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_4">§6.4.1</a></p>
-      <p>Perl really vanished, even more so than PHP</p>
-      <p>i'd love to read a book about what happened</p>
+    <div class="copyright">
+      <p>&copy; 2025 sam raker</p>
     </div>
-    <div>
-      <p>HTTP/1.0 used 1 TCP connection per resource<sup><a target="_blank" title="Section 6.3"
-            href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_3">§6.3.3.1</a></sup> (not just
-        the page itself but every script,
-        image, etc.)</p>
-      <p>in retrospect this is hiariously wasteful, on par with <a
-          href="https://www.reddit.com/r/futurama/comments/1hr8vg/my_favourite_futurama_moment/"
-          title="reddit post with a gif in it" target="_blank">Philip J. Fry's oreo technique</a></p>
-    </div>
-    <div class="noborder">
-      <p>speaking of retrospection, how did anyone ever believe in Java applets</p>
-      <blockquote>Java, in contrast, is downloaded as binary packaged archives -- the user is therefore left to trust
-        the security restrictions within the Java execution environment.<sup>[<a target="_blank" title="Section 6.5"
-            href="https://ics.uci.edu/~fielding/pubs/dissertation/evaluation.htm#sec_6_5">§6.5.4.3]</blockquote>
-    </div>
-  </div>
-  <div id="coda">
-    <p>
-      do you have thoughts?
-      <a href="https://bsky.app/profile/swizzard.pizza" target="_blank">@ me</a>
-    </p>
-    <p>go <a href="/">home</a></p>
-  </div>
   </div>
 </body>
 
