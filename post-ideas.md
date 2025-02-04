@@ -1,0 +1,5 @@
+- [ ] complex/complicated/simple/simplified
+- [ ] tech relatability assumptions
+  - WoMM
+  - Mirkwood documentation
+  - it's safe if done safely/PEBKAC
