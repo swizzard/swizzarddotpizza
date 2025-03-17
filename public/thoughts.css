@@ -33,6 +33,16 @@ div.noborder {
   border-bottom: none !important;
 }
 
+div.noborder.sentence {
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+div.noborder.sentence>p {
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+
 div#coda {
   text-align: center;
 }
@@ -40,6 +50,11 @@ div#coda {
 blockquote {
   border: 1px solid var(--text-primary);
   padding: 5px;
+}
+
+blockquote.bluesky-embed {
+  border: none;
+  padding: none;
 }
 
 .book-title {
