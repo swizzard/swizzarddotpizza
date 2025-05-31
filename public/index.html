@@ -26,68 +26,77 @@
     />
     <title>swizzard dot pizza</title>
     <link rel="stylesheet" href="./style.css" />
+    <link rel="stylesheet" href="./index.css" />
   </head>
 
   <body>
-    <div>
-      <h1>hello</h1>
-      <img
-        id="selfie"
-        src="https://swizzard-public.s3.us-east-1.amazonaws.com/selfie256.jpg"
-        alt="a selfie of me"
-      />
-      <p>my name is sam raker</p>
-      <p>welcome to my website</p>
+    <div id="about">
+      <div>
+        <h1>hello</h1>
+        <img
+          id="selfie"
+          src="https://swizzard-public.s3.us-east-1.amazonaws.com/selfie256.jpg"
+          alt="a selfie of me"
+        />
+        <p>my name is sam raker</p>
+        <p>welcome to my website</p>
+      </div>
+      <div>
+        <p>i live in queens, new york, with my wife and our dog</p>
+        <p>
+          i've been a web developer for a little over 10 years, although i'm
+          currently unemployed
+        </p>
+        <p>
+          <a
+            href="https://swizzard-public.s3.us-east-1.amazonaws.com/resume_2024.pdf"
+            target="_blank"
+            alt="a pdf copy of my resume"
+            >here is my resume</a
+          >
+          if you're interested
+        </p>
+      </div>
+      <div>
+        <p>
+          i can be found on
+          <a href="https://bsky.app/profile/swizzard.pizza" target="_blank"
+            >bluesky</a
+          >, <a href="https://github.com/swizzard" target="_blank">github</a>,
+          and
+          <a
+            href="https://www.linkedin.com/in/sam-raker-b2387473/"
+            target="_blank"
+            >linkedin</a
+          >
+        </p>
+      </div>
     </div>
-    <div>
-      <p>i live in queens, new york, with my wife and our dog</p>
-      <p>
-        i've been a web developer for a little over 10 years, although i'm
-        currently unemployed
-      </p>
-      <p>
-        <a
-          href="https://swizzard-public.s3.us-east-1.amazonaws.com/resume_2024.pdf"
-          target="_blank"
-          alt="a pdf copy of my resume"
-          >here is my resume</a
-        >
-        if you're interested
-      </p>
+    <div id="menu">
+      <h1>menu</h1>
+      <details id="writing">
+        <summary>writing</summary>
+        <p><a href="/bangla.html">Bangla thoughts</a></p>
+        <p><a href="/womm.html">"works on my machine"</a></p>
+        <p><a href="/rest.html">REST thoughts</a></p>
+        <p><a href="/syo.html">scrap your ORM</a></p>
+      </details>
+      <details>
+        <summary>etc.</summary>
+        <p>
+          <a
+            href="https://bangla-flashcards.netlify.app"
+            title="bangla flashcards"
+            target="_blank"
+            >bangla flashcards</a
+          >
+        </p>
+      </details>
     </div>
-    <div>
-      <p>
-        i can be found on
-        <a href="https://bsky.app/profile/swizzard.pizza" target="_blank"
-          >bluesky</a
-        >, <a href="https://github.com/swizzard" target="_blank">github</a>, and
-        <a
-          href="https://www.linkedin.com/in/sam-raker-b2387473/"
-          target="_blank"
-          >linkedin</a
-        >
-      </p>
-    </div>
-    <details id="writing">
-      <summary>writing</summary>
-      <p><a href="/bangla.html">Bangla thoughts</a></p>
-      <p><a href="/womm.html">"works on my machine"</a></p>
-      <p><a href="/rest.html">REST thoughts</a></p>
-      <p><a href="/syo.html">scrap your ORM</a></p>
-    </details>
-    <details>
-      <summary>etc.</summary>
-      <p>
-        <a
-          href="https://bangla-flashcards.netlify.app"
-          title="bangla flashcards"
-          target="_blank"
-          >bangla flashcards</a
-        >
-      </p>
-    </details>
-    <div class="copyright">
-      <p>&copy; 2025 sam raker</p>
+    <div id="footer">
+      <div class="copyright">
+        <p>&copy; 2025 sam raker</p>
+      </div>
     </div>
     <script src="https://webring.fun/widget.js"></script>
     <script>
@@ -95,6 +104,8 @@
         type: "bar",
         siteUrl: "https://swizzard.pizza",
         color: "#abae89",
+        static_position: false,
+        fixed_position: false,
       });
     </script>
   </body>

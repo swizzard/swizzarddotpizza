@@ -1,0 +1,48 @@
+body {
+  display: grid;
+}
+body {
+  grid-template-columns: [menu] 1fr [about] 7fr;
+  grid-template-rows: [main] 7fr [footer] 1fr;
+}
+
+#about {
+  grid-column-start: about;
+  grid-row: main / footer;
+  border-top: 2px dashed var(--othertan);
+  border-right: 2px dashed var(--othertan);
+}
+
+#selfie {
+  border-radius: 50%;
+}
+
+#menu {
+  grid-column: menu / about;
+  grid-row: main / footer;
+  border-top: 2px dashed var(--othertan);
+  border-right: 2px dashed var(--othertan);
+
+  & details {
+  text-align: left;
+  font-size: 
+  padding: 10px;
+
+    & summary {
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+}
+
+#footer {
+  grid-column: about;
+  grid-row: footer;
+  border-top: 2px dashed var(--othertan);
+  border-bottom: 2px dashed var(--othertan);
+  border-right: 2px dashed var(--othertan);
+
+  .copyright {
+    margin-bottom: 5px;
+  }
+}
