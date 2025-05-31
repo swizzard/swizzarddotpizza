@@ -1,0 +1,43 @@
+# Distributed Systems
+
+- similarities to local multithreading
+  - inherent overhead
+    - ipc
+    - lifecycle management
+- distributing failure
+  - loose coupling fosters resiliency
+- time and locality
+  - "edge" computing
+  - scheduled tasks
+- state
+  - breaking state into pieces
+    - _clear boundaries and ownership_
+      - the browser stores a cookie, posts come from the database, images are proxied by microservice A while comments are handled by microservice B
+    - coupling
+      - temporal (A needs to happen before/after B)
+        - user sessions
+      - technical (A and B are stored such that retrieving both is minimally more expensive than retrieving just one)
+        - db
+      - logical (A cannot be properly processed without B or vice versa)
+        - hydrating timeseries data?
+  - transactionality
+- intent vs results
+  - write-ahead logs
+  - optimism
+- consistency and up-to-dateness are parameters
+  - cache invalidation strategies, `Expires` header
+  - batching operations
+  - does every component on the dashboard really need to be maximally fresh?
+- microservices
+  - advantages
+    - Doing One Thing
+    - flexibility
+    - resiliency
+  - challenges
+    - communication
+      - timeouts, retries, idempotency
+    - monitoring
+- temporal.io
+- kubernetes
+
+- lucidchart

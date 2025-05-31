@@ -1,0 +1,105 @@
+# API Design
+
+- Consistency
+  - consistency reduces cognitive overhead (steve jobs outfit)
+    - specific ordering of arguments or path segments less important
+      - `/{resource}/{id}/{action}` vs `/{resource}/{action}/{id}`
+      - `do(what, how)` vs `do(how, what)`
+    - if you require verification for _some_ logged-in user endpoints, you should require it for _all_ logged-in user endpoints even if it's public data
+    - same pagination regardless of resource
+    - same kind of ids
+- Conventionality
+  - conventions reduce cognitive overhead (warning signs)
+    - Principle of least astonishment (https://en.wikipedia.org/wiki/Principle_of_least_astonishment)
+    - idiomaticity
+  - http verbs and response codes
+    - `PUT` idempotency is useful
+    - 401 vs 403, 400 vs 405 is useful
+    - status code 200 + `{"ok": true}` might be better than 204
+  - `get_` should be idempotent, `make_` shouldn't be
+    - errors handled and produced idiomatically
+      - no need to wrap well-known errors (e.g. `requests.Timeout`)
+  - plural implies collection
+- Clarity
+  - "explicit is better than implicit"
+  - thorough and informative documentation
+    - 'endogenous' vs 'exogenous'
+      - docstrings vs website copy
+  - everything "public" should have a docstring (endogenous)
+    - "public" varies by language
+    - "not documented == not public == not our problem" is appealing but requires
+      diligence to not be just an excuse
+    - "`barFoo(fooId: FooId, bar: Bar)`: bars `foo` with id `foooId` using `bar`" is annoying but necessary
+    - consistency/conventionality violations _require_ comments and docstrings
+  - types (endogenous)
+    - types are for people, not computers
+    - names should be helpful, newtypes and aliases are Good
+      - _but_ don't wrap needlessly and keep an eye out for accidentally reinventing something in the stdlib or a well-known library
+    - don't be afraid of multi-character type variables
+    - possible to go too far
+  - openapi/graphql (endogenous)
+    - 3rd-party tools
+    - like types but not quite
+      - gql typesystem isn't your langage's typesystem
+      - same rules apply
+      - zod, fastapi, rust extractor pattern
+    - degree of abstraction over the network
+  - exogenous documentation
+    - presumptions/preconditions
+      - auth stuff
+      - sandboxes/environments
+      - "holes" in endogenous stuff
+        - certain calls need to happen in a specific order
+          - also in docstrings
+        - permissions not easily/fluently communicable with types v.s.
+          - "admin" tokens are structurally indistinguishable from "regular" tokens
+          - also in docstrings
+        - you never want to return more than 200 things
+          - return a 400 and document that hard limit in your code or
+          - quietly truncate and explain why here
+    - _examples_
+    - ideally more suppletive than complementary
+
+## http apis
+
+- presence of the network widens the surface
+  - business logic errors _and_ timeouts, retries, caching, proxy server header allowlists, etc
+    - how much to "own"
+      - audience, degrees of freedom
+  - loop much longer, no red squiggles just final results
+    - errors way more important
+    - response sufficient for context
+      - HATEOAS, `&hydrated=true`, etc
+      - per-request overhead vs risk of timeouts
+        - how many spinners?
+- statelessness
+  - no local memory, no closed-over variables
+  - everything required needs to be sent to the backend
+    - compression
+      - literal (msgpack)
+      - figurative (user sessions, pagination cursors, etc)
+
+## examples
+
+- stripe reports api
+  - complex
+    - entities
+    - dates
+    - different report types each with different columns
+  - unusual execution model
+    - not JSON CRUD
+    - POST to create report
+    - GET to poll status
+    - GET to retrieve result (a csv file)
+  - awkward fit for client libraries, especially the CLI tool
+  - openapi-style documentation minimally helpful
+    - mostly how to include columns
+    - column names not especially helpful
+  - _very_ long loop
+    - empty csv not aberrant
+  - needed more documentation
+    - significance/semantics of columns
+    - availability and relevance of data
+    - links to other reference material
+    - _context_
+      - devs =/= cpas
