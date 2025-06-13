@@ -1,0 +1,82 @@
+:root {
+  --sky-bg: linear-gradient(
+    to top,
+    #ffc998,
+    #ffb6b2,
+    #fdafdb,
+    #c6b6fc,
+    #6fc1ff
+  );
+  --roof-bg: linear-gradient(to top, #ffc998, #ffb6b2);
+}
+
+div#content {
+  width: 1026px;
+  height: 1000px;
+}
+
+div#background {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background-image: var(--sky-bg);
+}
+div#foreground {
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  width: 100%;
+  z-index: 10000;
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: [sky] 5fr [roofs] 1fr [buildings] 2fr;
+}
+
+div#sky {
+  background-image: var(--sky-bg);
+  grid-column: 1 / span 6;
+  grid-row: sky;
+}
+
+div#foreground {
+  grid-row-start: buildings;
+  grid-row-end: roofs;
+  height: 100%;
+  /* padding: 0px; */
+
+  > div {
+    background-color: #000;
+  }
+  > div.roof {
+    /* background-image: var(--roof-bg); */
+    background-color: #fff;
+    grid-column: 1 / 2;
+    grid-row: roofs / roofs;
+    border-color: #000;
+    border: 20px;
+  }
+  > div.building {
+    grid-column: 1/ 2;
+    grid-row: buildings / buildings;
+  }
+}
+
+/* div.house:last-child { */
+/*   margin-right: 10px; */
+/* } */
+/**/
+/* div.house > div.roof { */
+/*   width: 0px; */
+/*   height: 0px; */
+/*   border-width: 0px 20px 20px 20px; */
+/*   border-style: solid; */
+/*   border-color: #000 transparent; */
+/* } */
+/**/
+/* div.house div.building { */
+/*   width: 171px; */
+/*   color: #000; */
+/* } */
