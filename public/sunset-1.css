@@ -1,0 +1,10 @@
+div.easel {
+  --sky-bg: linear-gradient(
+    to top,
+    #ffc998,
+    #ffb6b2,
+    #fdafdb,
+    #c6b6fc,
+    #6fc1ff
+  );
+}
