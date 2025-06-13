@@ -6,6 +6,15 @@
   --fw: calc(var(--w) * 6);
 }
 
+@media (max-width: 1709px) {
+  :root {
+    --w: 10em;
+    --h: 15em;
+    --p: 2em;
+    --hp: 1em;
+  }
+}
+
 div#background {
   position: fixed;
   padding: 0px;
