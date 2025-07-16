@@ -1,8 +1,6 @@
-body {
+#content {
   display: grid;
-}
-body {
-  grid-template-rows: [main] 5fr [menu] 5fr [footer] 1fr;
+  grid-template-rows: [main] 4fr [menu] 6fr [footer] 0.5fr;
 }
 
 #about {
@@ -26,10 +24,16 @@ body {
   & ul {
     text-align: left;
     list-style-position: inside;
+    & li p {
+      padding-left: 20px;
+    }
   }
   & #projects {
-    & ul {
+    & li.site {
       list-style-type: "\1F5A5";
+    }
+    & li.rust {
+      list-style-type: "\1F980";
     }
   }
   & #writing ul {
@@ -52,4 +56,10 @@ body {
 #footer {
   grid-row: footer;
   border: 2px dashed var(--othertan);
+}
+
+@media (max-width: 600px) {
+  #content {
+    grid-template-rows: [main] 2fr [menu] 5fr [footer] 0.5fr;
+  }
 }
