@@ -2,15 +2,13 @@ body {
   display: grid;
 }
 body {
-  grid-template-columns: [menu] 1fr [about] 7fr;
-  grid-template-rows: [main] 7fr [footer] 1fr;
+  grid-template-rows: [main] 5fr [menu] 5fr [footer] 1fr;
 }
 
 #about {
-  grid-column-start: about;
-  grid-row: main / footer;
-  border-top: 2px dashed var(--othertan);
-  border-right: 2px dashed var(--othertan);
+  grid-row: main;
+  border: 2px dashed var(--othertan);
+  border-bottom: none;
 }
 
 #selfie {
@@ -18,31 +16,40 @@ body {
 }
 
 #menu {
-  grid-column: menu / about;
-  grid-row: main / footer;
-  border-top: 2px dashed var(--othertan);
-  border-right: 2px dashed var(--othertan);
+  grid-row: menu;
+  border: 2px dashed var(--othertan);
+  border-bottom: none;
 
-  & details {
-  text-align: left;
-  font-size: 
-  padding: 10px;
-
-    & summary {
-      font-weight: bold;
-      cursor: pointer;
+  & div {
+    padding: 10px;
+  }
+  & ul {
+    text-align: left;
+    list-style-position: inside;
+  }
+  & #projects {
+    & ul {
+      list-style-type: "\1F5A5";
     }
   }
+  & #writing ul {
+    list-style-type: "\1F4D3";
+  }
+}
+#sunset {
+  float: left;
+  text-align: left;
+  width: 50%;
+  display: inline-block;
+}
+#clouds {
+  float: right;
+  text-align: right;
+  width: 50%;
+  display: inline-block;
 }
 
 #footer {
-  grid-column: about;
   grid-row: footer;
-  border-top: 2px dashed var(--othertan);
-  border-bottom: 2px dashed var(--othertan);
-  border-right: 2px dashed var(--othertan);
-
-  .copyright {
-    margin-bottom: 5px;
-  }
+  border: 2px dashed var(--othertan);
 }
