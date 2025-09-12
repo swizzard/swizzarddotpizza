@@ -1,6 +1,6 @@
 #content {
   display: grid;
-  grid-template-rows: [main] 4fr [menu] 6fr [footer] 0.5fr;
+  grid-template-rows: [main] 3fr [menu] 2fr [footer] 0.5fr;
 }
 
 #about {
@@ -60,6 +60,6 @@
 
 @media (max-width: 600px) {
   #content {
-    grid-template-rows: [main] 2fr [menu] 5fr [footer] 0.5fr;
+    grid-template-rows: [main] 1fr [menu] 1fr [footer] 0.2fr;
   }
 }

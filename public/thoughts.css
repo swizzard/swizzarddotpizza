@@ -1,4 +1,5 @@
-h1 {
+h1,
+h2 {
   text-align: center;
 }
 
@@ -11,21 +12,25 @@ div.thought {
   border: 1px dashed var(--othertan);
 }
 
-div.thought>div {
+div.thought > div {
   border-bottom: 1px dashed var(--othertan);
 }
 
-div.thought>div:last-child {
+div.thought > div.pubdate {
   border-bottom: none;
 }
 
-div#web>div,
-div#misc>div {
+div.thought > div:last-child {
+  border-bottom: none;
+}
+
+div#web > div,
+div#misc > div {
   border-bottom: 1px solid var(--othertan);
 }
 
-div#web>div:last-child,
-div#misc>div:last-child {
+div#web > div:last-child,
+div#misc > div:last-child {
   border-bottom: none;
 }
 
@@ -38,7 +43,7 @@ div.noborder.sentence {
   padding-bottom: 5px;
 }
 
-div.noborder.sentence>p {
+div.noborder.sentence > p {
   margin-top: 5px;
   margin-bottom: 5px;
 }
