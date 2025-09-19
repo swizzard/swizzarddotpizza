@@ -6,6 +6,17 @@
   - eng 259
     - prof needs storage locker for comics collection
 - tuesday
-  - eng 101
+  - ecf 101
     - ta is a lady
     - `ePortfolio` is a pretty terrible wysiwyg-y website builder thing
+- wednesday
+  - everybody thrown off by no class next week
+  - mat 115
+    - absences: add/drop vs confused by lab vs covid
+  - eng 259
+    - told prof about _shelved by genre_
+    - 1st hw, struggling to meet minimum length
+- thursday
+  - ecf 101
+    - class scheduled 13:00-15:15, we went 13:00-13:40, break until 14:00, class over at 14:05
+    - got assigned to groups and that was it
