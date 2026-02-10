@@ -9,11 +9,11 @@ div#intro {
 }
 
 div.thought {
-  border: 1px dashed var(--othertan);
+  border: 1px dashed var(--other);
 }
 
 div.thought > div {
-  border-bottom: 1px dashed var(--othertan);
+  border-bottom: 1px dashed var(--other);
 }
 
 div.thought > div.pubdate {
@@ -26,7 +26,7 @@ div.thought > div:last-child {
 
 div#web > div,
 div#misc > div {
-  border-bottom: 1px solid var(--othertan);
+  border-bottom: 1px solid var(--other);
 }
 
 div#web > div:last-child,

@@ -12,11 +12,11 @@ div.section>div.section {
 }
 
 div.section>div.section:first-of-type {
-  border-top: 1px dashed var(--othertan);
+  border-top: 1px dashed var(--other);
 }
 
 div.section>div.section:not(:last-child) {
-  border-bottom: 1px dashed var(--othertan);
+  border-bottom: 1px dashed var(--other);
 }
 
 [data-tooltip] {
@@ -43,7 +43,7 @@ details summary {
 }
 
 details[open] {
-  border: 1px solid var(--othertan);
+  border: 1px solid var(--other);
   padding: 5px;
   font-size: smaller;
 }

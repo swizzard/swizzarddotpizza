@@ -5,7 +5,7 @@
 
 #about {
   grid-row: main;
-  border: 2px dashed var(--othertan);
+  border: 2px dashed var(--other);
   border-bottom: none;
 }
 
@@ -16,5 +16,5 @@
 
 #footer {
   grid-row: footer;
-  border: 2px dashed var(--othertan);
+  border: 2px dashed var(--other);
 }
