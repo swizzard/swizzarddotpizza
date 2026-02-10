@@ -1,8 +1,7 @@
 :root {
-  --bg-primary: #dadbcc;
-  --text-primary: #464838;
-  --paleblue: #bae1e3;
-  --othertan: #abae89;
+  --text-primary: #dbf9d8;
+  --bg-primary: #69ac69;
+  --other: #2f4858;
 }
 
 body {
@@ -20,12 +19,13 @@ a {
 }
 
 a:hover {
-  color: var(--othertan);
+  color: var(--other);
+  text-decoration-color: var(--other);
 }
 
 a:visited {
-  color: var(--othertan);
-  text-decoration-color: var(--othertan);
+  color: var(--other);
+  text-decoration-color: var(--other);
 }
 
 div {

@@ -1,6 +1,6 @@
 #content {
   display: grid;
-  grid-template-rows: [main] 3fr [menu] 2fr [footer] 0.5fr;
+  grid-template-rows: [main] 1fr [footer] 0.2fr;
 }
 
 #about {
@@ -13,53 +13,8 @@
   border-radius: 50%;
 }
 
-#menu {
-  grid-row: menu;
-  border: 2px dashed var(--othertan);
-  border-bottom: none;
-
-  & div {
-    padding: 10px;
-  }
-  & ul {
-    text-align: left;
-    list-style-position: inside;
-    & li p {
-      padding-left: 20px;
-    }
-  }
-  & #projects {
-    & li.site {
-      list-style-type: "\1F5A5";
-    }
-    & li.rust {
-      list-style-type: "\1F980";
-    }
-  }
-  & #writing ul {
-    list-style-type: "\1F4D3";
-  }
-}
-#sunset {
-  float: left;
-  text-align: left;
-  width: 50%;
-  display: inline-block;
-}
-#clouds {
-  float: right;
-  text-align: right;
-  width: 50%;
-  display: inline-block;
-}
 
 #footer {
   grid-row: footer;
   border: 2px dashed var(--othertan);
-}
-
-@media (max-width: 600px) {
-  #content {
-    grid-template-rows: [main] 1fr [menu] 1fr [footer] 0.2fr;
-  }
 }
