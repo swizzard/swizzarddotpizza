@@ -1,7 +1,28 @@
 :root {
-  --text-primary: #dbf9d8;
-  --bg-primary: #69ac69;
-  --other: #2f4858;
+  --text-primary: #a8bfa0;
+  --bg-primary: #7e7a48;
+  --other: #5e9fad;
+}
+
+#content {
+  display: grid;
+  grid-template-rows: [main] 1fr [footer] 0.2fr;
+}
+
+#about {
+  grid-row: main;
+  border: 2px dashed var(--other);
+  border-bottom: none;
+}
+
+#selfie {
+  border-radius: 50%;
+}
+
+
+#footer {
+  grid-row: footer;
+  border: 2px dashed var(--other);
 }
 
 body {
